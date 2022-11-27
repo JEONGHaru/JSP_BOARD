@@ -1,0 +1,16 @@
+@charset "UTF-8";@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/kokoro.css);
+*{
+	font-family: 'Kokoro', serif;
+	
+}
+.carousel-item > img {
+	
+		height: 300px;
+	}
+a{
+	text-decoration-line: none;
+	color: inherit;
+	
+}
+
