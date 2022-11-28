@@ -79,43 +79,50 @@
 			<div class="col-md-6">
 				<form action="join" method="post"
 					onsubmit="joinFormSubmit(this); return false;">
-					<h3 style="text-align: center;">会員登録</h3>
+					<h3 style="text-align: center; margin:50px">会員登録</h3>
 					<div class="form-floating mb-3">
 						<input type="text" class="form-control" id="floatingInput"
 							placeholder="IDを入力してください" maxlength="15" name="userID"> <label
-							for="floatingInput">IDを入力してください</label>
+							for="floatingInput">ID</label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="floatingInput"
+						<input type="password" class="form-control" id="floatingPassword"
 							placeholder="PASSWORDを入力してください" name="userPassword"> <label
-							for="floatingInput">PASSWORDを入力してください</label>
+							for="floatingInput">PASSWORD</label>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" id="floatingInput"
+						<input type="password" class="form-control" id="floatingPassword"
 							placeholder="PASSWORDをもう一度入力してください" name="userPassword2">
-						<label for="floatingInput">PASSWORDをもう一度入力してください</label>
+						<label for="floatingInput">PASSWORD確認</label>
 					</div>
-					<div class="form-floating mb-3">
+					<div class="form-floating d-flex">
+					<div class="form-floating col">
 						<input type="text" class="form-control" id="floatingInput"
-							placeholder="名前を入力してください" name="userName"> <label
-							for="floatingInput">名前を入力してくださいを入力してください</label>
+							placeholder="名字を入力してください" name="userFirstName"> <label
+							for="floatingInput mb-0">FirstName</label>
 					</div>
-					<div class="form-floating mb-3">
+					<div class="form-floating mb-3 col">
 						<input type="text" class="form-control" id="floatingInput"
-							placeholder="EMAILを入力してください" name="userEmail"> <label
-							for="floatingInput">EMAILを入力してください</label>
+							placeholder="名前を入力してください" name="userLastName"><label
+							for="floatingInput">LastName</label>
+					</div>
 					</div>
 					<div class="form-floating mb-3">
 						<div class="btn-group" role="group"
 							aria-label="Basic radio toggle button group">
 							<input type="radio" class="btn-check" name="userGender"
-								id="btnradio1" autocomplete="off" checked> <label
+								id="btnradio1" autocomplete="off" value="男性" checked> <label
 								class="btn btn-outline-primary" for="btnradio1">男性</label>
 
 							<input type="radio" class="btn-check" name="userGender"
-								id="btnradio2" autocomplete="off"> <label
+								id="btnradio2" autocomplete="off" value="女性"> <label
 								class="btn btn-outline-primary" for="btnradio2">女性</label>
 						</div>
+					</div>
+					<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="floatingInput"
+							placeholder="EMAILを入力してください" name="userEmail"> <label
+							for="floatingInput">EMAIL</label>
 					</div>
 					<input type="submit" class="btn btn-primary form-control"
 						value="会員登録" />

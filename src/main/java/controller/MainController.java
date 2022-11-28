@@ -21,7 +21,7 @@ public class MainController extends HttpServlet{
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
-		
+		 
 		
 		request.setAttribute("userID", userID);
 		
