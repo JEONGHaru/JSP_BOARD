@@ -8,95 +8,58 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class BbsDAO {
+import util.DatabaseUtil;
 
-	private Connection conn;
-	private ResultSet rs;
-	
-	public BbsDAO() {
-		
-		String dbURL = "jdbc:mysql://localhost:3306/BBS";
-		String dbID = "jky";
-		String dbPassword = "1234";
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
-	public String getDate() {
-		
-		String SQL = "SELECT NOW()";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getString(1);
-			}
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		return "";
-	}
+public class BbsDAO {
 	
 	
-	
-	public int getNext() {
-		
-		String SQL = "SELECT ID FROM BBS ORDER BY ID DESC";
-		
-		try {
-			PreparedStatement pstmt =conn.prepareStatement(SQL);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getInt(1) + 1;
-			}
-			return 1; //첫번째 게시물인 경우
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return -1; //데이터 베이스 오류
-		
-	}
 	
 	public int write(String title, String userID, String content) {
 		
-		String SQL = "INSERT INTO BBS VALUES(?,?,?,?,?,?)";
-		
+		String SQL = "INSERT INTO BBS(TITLE,USERID,CONTENT) VALUES(?,?,?)";
+		int result = 0;
 		try {
-			PreparedStatement pstmt =conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext());
-			pstmt.setString(2, title);
-			pstmt.setString(3, userID);
-			pstmt.setString(4, getDate());
-			pstmt.setString(5, content);
-			pstmt.setInt(6, 1);
+			Connection conn = DatabaseUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, title);
+			pstmt.setString(2, userID);
+			pstmt.setString(3, content);
 			
-			return pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
+			
+			conn.close();
+			pstmt.close();
+			
+			return result;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return -1; //데이터 베이스 오류
+		return result; //데이터 베이스 오류
 		
+	}
+	
+	public ArrayList<Bbs> getList( ){
+		
+		return getList("title","",1);
 	}
 	
 	public ArrayList<Bbs> getList(int page){
 		
-		String SQL = "SELECT * FROM BBS WHERE AVAILABLE = 1 ORDER BY REGDATE DESC LIMIT ?,10;";
+		return getList("title","",page);
+	}
+	
+	public ArrayList<Bbs> getList(String field,String query,int page){
+		
+		String SQL = "SELECT * FROM BBS WHERE " +field+ " LIKE ? AND AVAILABLE = 1 ORDER BY REGDATE DESC LIMIT ?,10;";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		
 		try {
+			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, (page - 1) * 10);
-			rs = pstmt.executeQuery();
+			pstmt.setString(1, "%"+query+"%");
+			pstmt.setInt(2, (page - 1) * 10);
+			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Bbs bbs = new Bbs();
 				bbs.setId(rs.getInt(1));
@@ -107,6 +70,10 @@ public class BbsDAO {
 				bbs.setAvailable(rs.getInt(6));
 				list.add(bbs);
 			}
+			
+			conn.close();
+			pstmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -118,10 +85,15 @@ public class BbsDAO {
 		int count = 0;
 		
 		try {
-			Statement pstmt = conn.createStatement();
-			rs = pstmt.executeQuery(SQL);
+			Connection conn = DatabaseUtil.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs =  stmt.executeQuery(SQL);
 			if(rs.next())
 				count = rs.getInt("COUNT");
+			
+			conn.close();
+			stmt.close();
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -129,29 +101,16 @@ public class BbsDAO {
 		return count;
 	}
 	
-	public boolean nextPage(int pageNumber) {
-		String SQL = "SELECT * FROM BBS WHERE ID < ? AND AVAILABLE = 1 ORDER BY ID DESC LIMIT 10";
-		
-		try {
-			PreparedStatement pstmt =conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
-			rs = pstmt.executeQuery();
-			if(rs.next()) return true;
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-		
-	}
+	
 	
 	public Bbs getBbs(int id) {
 		String SQL = "SELECT * FROM BBS WHERE ID = ?";
 		
 		try {
+			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt =conn.prepareStatement(SQL);
 			pstmt.setInt(1, id);
-			rs = pstmt.executeQuery();
+			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
 				Bbs bbs = new Bbs();
 				bbs.setId(rs.getInt(1));
@@ -160,6 +119,11 @@ public class BbsDAO {
 				bbs.setRegDate(rs.getString(4));
 				bbs.setContent(rs.getString(5));
 				bbs.setAvailable(rs.getInt(6));
+				
+				conn.close();
+				pstmt.close();
+				rs.close();
+				
 				return bbs;
 			}
 			
@@ -172,28 +136,40 @@ public class BbsDAO {
 	public int update(int id, String title, String content) {
 		
 		String SQL = "UPDATE BBS SET TITLE =?, CONTENT= ? WHERE ID = ?";
-		
+		int result = 0;
 		try {
-			PreparedStatement pstmt =conn.prepareStatement(SQL);
+			Connection conn = DatabaseUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, id);
-			return pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
+			
+			conn.close();
+			pstmt.close();
+			
+			return result;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1; //데이터 베이스 오류
+		return result; //데이터 베이스 오류
 	}
 	
 	public int delete(int id) {
 		String SQL = "UPDATE BBS SET AVAILABLE = 0 WHERE id = ?";
+		int result = 0;
 		
 		try {
+			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt =conn.prepareStatement(SQL);
 			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
 			
-			return pstmt.executeUpdate();
+			conn.close();
+			pstmt.close();
+			
+			return result;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

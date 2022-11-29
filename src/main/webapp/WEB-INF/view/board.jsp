@@ -22,6 +22,13 @@ a {
 	text-decoration-line: none;
 	color: inherit;
 }
+
+.form-select {
+	width: 50%;
+}
+.mysearch{
+	width:30%;
+	}
 </style>
 <title>JSP ウェブサイト</title>
 <style type="text/css">
@@ -126,8 +133,26 @@ a {
 			</div>
 		</div>
 	</div>
+
+
+
+
+
 	<div class="container mt-4">
 		<div class="row">
+			<form class="col d-flex m-2 justify-content-end" role="search">
+				<fieldset class="d-flex">
+					<legend hidden="hidden">検索フィールド</legend>
+					<label hidden="hideen">検索分類</label> <select
+						class="form-select form-select-sm me-2"
+						aria-label="Default select example" name="field">
+						<option ${(param.field == "title")?"selected":""} value="title">タイトル</option>
+						<option ${(param.field == "userID")?"selected":""} value="userID">作成者</option>
+					</select> <label hidden="hidden">検索</label> <input class="form-control me-2"
+						type="search" name="query" value="${param.query}" />
+					<button class="btn btn-outline-primary mysearch" type="submit">検索</button>
+				</fieldset>
+			</form>
 			<table class="table table-striped table-hover"
 				style="text-align: center; border: #dddddd">
 				<thead>
@@ -207,7 +232,8 @@ a {
 									</div>
 									<div class="modal-body">ログインしてください</div>
 									<div class="modal-footer">
-										<a href="login" role="button" class="btn btn-primary">ログイン</a>
+										<button class="btn btn-primary" data-bs-toggle="modal"
+											data-bs-target="#mymodal" aria-expanded="false">ログイン</button>
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">閉じる</button>
 									</div>

@@ -21,9 +21,18 @@ public class BoardController extends HttpServlet{
 		
 		HttpSession session = request.getSession();
 		
+		String field = "title";
+		if(request.getParameter("field") != null && !request.getParameter("field").equals("") ){
+			field = request.getParameter("field");
+		}
+		
+		String query = "";
+		if(request.getParameter("query") != null && !request.getParameter("query").equals("") ){
+			query = request.getParameter("query");
+		}
 		
 		String userID = null;
-		if(session.getAttribute("userID") != null && session.getAttribute("userID").equals("") ){
+		if(session.getAttribute("userID") != null && !session.getAttribute("userID").equals("") ){
 			userID = (String) session.getAttribute("userID");
 		}
 		
@@ -32,10 +41,10 @@ public class BoardController extends HttpServlet{
 			page = Integer.parseInt(request.getParameter("p"));
 		}
 		
+		System.out.printf("%s , %s%n",field,query);
 		BbsDAO bbsDAO = new BbsDAO();
-		ArrayList<Bbs> list = bbsDAO.getList(page);
-		int count =bbsDAO.getCount();
-		
+		int count = bbsDAO.getCount();
+		ArrayList<Bbs> list = bbsDAO.getList(field,query,page);
 		request.setAttribute("userID", userID);
 		request.setAttribute("list", list);
 		request.setAttribute("count", count);

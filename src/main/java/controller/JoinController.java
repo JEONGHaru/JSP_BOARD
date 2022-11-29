@@ -45,13 +45,13 @@ public class JoinController extends HttpServlet{
 		UserDAO userDAO = new UserDAO();
 		User user = new User(userID,userPassword,userFirstName,userLastName,userGender,userEmail);
 		int result = userDAO.join(user);
-		String errorMessage = null;
-		if(result == -1) {
+		if(result == 0) {
 			response.getWriter().append(String
 					.format("<script> alert('%sのIDは登録できません'); history.back(); </script>"
 							, userID));
 		}else {
-			response.sendRedirect("login");
+			session.setAttribute("userID", userID);
+			response.getWriter().append("<script> alert('会員登録ありがとうございます'); location.href='main'; </script>");
 		}
 		}
 	}

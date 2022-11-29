@@ -39,7 +39,7 @@ a {
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
-		<div class="container-fluid m-1">
+		<div class="container-fluid">
 			<a class="navbar-brand " href="main"><img src="image/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
