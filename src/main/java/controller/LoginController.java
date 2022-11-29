@@ -15,13 +15,7 @@ import user.UserDAO;
 @WebServlet("/login")
 public class LoginController extends HttpServlet{
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
-	}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,28 +33,25 @@ public class LoginController extends HttpServlet{
 			userPassword = userPassword_;
 		
 		
-		
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(userID, userPassword);
-		String idErrorMessage = null;
-		String pwErrorMessage = null;
 		if(result == 1){
 			session.setAttribute("userID",userID);
-			response.sendRedirect("main");
+			response.getWriter().append("<script> alert('ログインできました'); location.href='main'; </script>");
+			return;
 		}
 		else if(result == 0){
-			pwErrorMessage = "パスワードが一致しません。";
-			request.setAttribute("pwErrorMessage", pwErrorMessage);
-			request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
+			response.getWriter().append("<script> alert('PASSWORDが一致しません'); history.back(); </script>");
+			return;
 		}
 		else if(result == -1){
-			idErrorMessage = "IDが存在しません。";
-			request.setAttribute("idErrorMessage", idErrorMessage);
-			request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
+			response.getWriter().append("<script> alert('IDが一致しません'); history.back(); </script>");
+			return;
 		}
 		else if(result == -2){
 			System.out.println("データベースERROR");
-			request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/view/main.jsp").forward(request, response);
+			return;
 		}
 		
 		

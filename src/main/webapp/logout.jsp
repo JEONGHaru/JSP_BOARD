@@ -12,7 +12,9 @@
 		session.invalidate();
 	%>
 	<script>
+		alert('ログアウトできました。');
 		location.href='main';
+		
 	</script>
 </body>
 </html>

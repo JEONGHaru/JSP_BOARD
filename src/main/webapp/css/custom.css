@@ -1,8 +1,8 @@
-@charset "UTF-8";@charset "UTF-8";
+@charset "UTF-8";
 @import url(//fonts.googleapis.com/earlyaccess/kokoro.css);
 *{
 	font-family: 'Kokoro', serif;
-	
+	background-color: red;
 }
 .carousel-item > img {
 	

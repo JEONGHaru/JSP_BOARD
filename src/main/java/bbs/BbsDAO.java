@@ -114,7 +114,7 @@ public class BbsDAO {
 	}
 	
 	public int getCount() {
-		String SQL = "SELECT COUNT(ID) AS COUNT FROM BBS ORDER BY REGDATE DESC";
+		String SQL = "SELECT COUNT(ID) AS COUNT FROM BBS WHERE AVAILABLE =1 ORDER BY REGDATE DESC";
 		int count = 0;
 		
 		try {

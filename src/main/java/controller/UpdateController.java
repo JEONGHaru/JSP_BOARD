@@ -81,7 +81,8 @@ public class UpdateController extends HttpServlet{
 				return;
 				}
 				else{
-					response.sendRedirect("board");
+					response.getWriter().append("<script> alert('修正しました'); location.href='board'; </script>");
+					
 				}
 			}
 			

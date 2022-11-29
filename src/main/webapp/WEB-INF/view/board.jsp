@@ -12,14 +12,24 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link href="css/custom.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" />
+<style>
+* {
+	font-family: 'Kokoro', serif;
+}
+
+a {
+	text-decoration-line: none;
+	color: inherit;
+}
+</style>
 <title>JSP ウェブサイト</title>
 <style type="text/css">
 </style>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-light">
+	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="main"><img src="image/logo.png"
 				alt="" /></a>
@@ -34,8 +44,9 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="main">ホーム</a></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 韓アイドル </a>
+						class="nav-link dropdown-toggle text-primary" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							韓アイドル </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
@@ -44,8 +55,9 @@
 							<li><a class="dropdown-item" href="2010korea.jsp">２０1０年代</a></li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 日アイドル </a>
+						class="nav-link dropdown-toggle text-danger" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							日アイドル </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
@@ -61,7 +73,8 @@
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="login">ログイン</a></li>
+							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+								data-bs-target="#mymodal" aria-expanded="false">ログイン</a></li>
 							<li><a class="dropdown-item" href="join">会員登録</a></li>
 						</ul>
 					</div>
@@ -72,14 +85,48 @@
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="">ログアウト</a></li>
+							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>
 				</c:if>
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="modal fade" id="mymodal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+
+			<div class="modal-content rounded-4 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<h1 class="fw-bold mb-0 fs-2">ログイン</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body p-5 pt-0">
+					<form action="login" onsubmit="joinFormSubmit(this); return false;"
+						method="post">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control rounded-3"
+								id="floatingInput" name="userID" placeholder="ID"> <label
+								for="floatingInput">ID</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control rounded-3"
+								id="floatingPassword" name="userPassword" placeholder="Password">
+							<label for="floatingPassword">PASSWORD</label>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+							type="submit">LOG IN</button>
+						<a class="text-primary" href="#">ID•PASSWORDを忘れた方はこちら</a>
+						<hr class="my-4">
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-4">
 		<div class="row">
 			<table class="table table-striped table-hover"
 				style="text-align: center; border: #dddddd">
@@ -147,23 +194,23 @@
 					</div>
 				</c:if>
 				<c:if test="${empty userID}">
-				<div class="col">
-					<button type="button" class="btn btn-primary float-end"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">作成</button>
-					<div class="modal fade" id="exampleModal" tabindex="-1"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">ログインしてください</div>
-								<div class="modal-footer">
-									<a href="join" role="button" class="btn btn-primary">会員登録</a>
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">閉じる</button>
-								</div>
+					<div class="col">
+						<button type="button" class="btn btn-primary float-end"
+							data-bs-toggle="modal" data-bs-target="#exampleModal">作成</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">ログインしてください</div>
+									<div class="modal-footer">
+										<a href="login" role="button" class="btn btn-primary">ログイン</a>
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">閉じる</button>
+									</div>
 								</div>
 							</div>
 						</div>

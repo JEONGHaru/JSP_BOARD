@@ -31,8 +31,6 @@ public class JoinController extends HttpServlet{
 		String userLastName = request.getParameter("userLastName");
 		String userGender = request.getParameter("userGender");
 		String userEmail = request.getParameter("userEmail");
-		System.out.println(userPassword);
-		System.out.println(userGender);
 		HttpSession session = request.getSession();
 		
 		if(!userID.matches("^[0-9a-zA-Z]*$")) {
