@@ -79,6 +79,9 @@ a {
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
+							<c:if test="${!emailCheck}">
+							<li><a class="dropdown-item" href="emailSend">E-mail確認</a></li>
+							</c:if>
 							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>
@@ -176,6 +179,10 @@ a {
 		</div>
 	</div>
 	<script>
+	
+		function clickEvent(){
+			alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
+		}
 		let DojoinFormSubmit = false;
 		function joinFormSubmit(form) {
 			if (DojoinFormSubmit) {

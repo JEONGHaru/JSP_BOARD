@@ -72,11 +72,18 @@ a {
 					</div>
 					</c:if>
 					<c:if test="${not empty userID}">
+					<c:if test="${!emailCheck}">
+						<a href="emailSend" class="btn btn-danger" role="button"
+							 onclick="clickEvent();" >E-MAIL確認</a>
+							</c:if>
 					<div class="nav-item dropdown">	
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
+							<c:if test="${!emailCheck}">
+							<li><a class="dropdown-item" href="emailSend">E-mail確認</a></li>
+							</c:if>
 							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>
@@ -160,6 +167,10 @@ a {
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous"></script>
 		<script>
+		
+		function clickEvent(){
+			alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
+		}
 		let DojoinFormSubmit = false;
 		function joinFormSubmit(form) {
 			if (DojoinFormSubmit) {

@@ -25,7 +25,7 @@ public class UpdateController extends HttpServlet{
 		}
 		
 		if(userID == null){
-			response.getWriter().append("<script> alert('ログインしてください'); location.href='login'; </script>");
+			response.getWriter().append("<script> alert('ログインしてください'); location.href='main'; </script>");
 			return;
 		}
 		int bbsID = 0;

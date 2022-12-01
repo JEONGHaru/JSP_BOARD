@@ -8,6 +8,8 @@ public class User {
 	private String userLastName;
 	private String userGender;
 	private String userEmail;
+	private String userEmailHash;
+	private boolean emailChecked;
 	
 	
 	public User() {
@@ -16,7 +18,7 @@ public class User {
 
 
 	public User(String userID, String userPassword, String userFirstName, String userLastName, String userGender,
-			String userEmail) {
+			String userEmail, String userEmailHash, boolean emailChecked) {
 		super();
 		this.userID = userID;
 		this.userPassword = userPassword;
@@ -24,6 +26,8 @@ public class User {
 		this.userLastName = userLastName;
 		this.userGender = userGender;
 		this.userEmail = userEmail;
+		this.userEmailHash = userEmailHash;
+		this.emailChecked = emailChecked;
 	}
 
 
@@ -87,6 +91,32 @@ public class User {
 	}
 
 
+	public String getUserEmailHash() {
+		return userEmailHash;
+	}
+
+
+	public void setUserEmailHash(String userEmailHash) {
+		this.userEmailHash = userEmailHash;
+	}
+
+
+	public boolean getEmailChecked() {
+		return emailChecked;
+	}
+
+
+	public void setEmailChecked(boolean emailChecked) {
+		this.emailChecked = emailChecked;
+	}
+
+
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", userPassword=" + userPassword + ", userFirstName=" + userFirstName
+				+ ", userLastName=" + userLastName + ", userGender=" + userGender + ", userEmail=" + userEmail
+				+ ", userEmailHash=" + userEmailHash + ", emailChecked=" + emailChecked + "]";
+	}
 	
 	
 }

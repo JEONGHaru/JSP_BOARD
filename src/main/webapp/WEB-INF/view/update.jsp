@@ -62,6 +62,10 @@ a {
 			</ul>
 			<c:if test="${empty userID}">
 				<div class="nav-item dropdown">
+				<c:if test="${!emailCheck}">
+						<a href="emailSend" class="btn btn-danger" role="button"
+							 onclick="clickEvent();" >E-MAIL確認</a>
+							</c:if>
 					<button class="btn btn-primary dropdown-toggle" type="button"
 						data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 					<ul class="dropdown-menu dropdown-menu-end">
@@ -77,6 +81,9 @@ a {
 						data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 					<ul class="dropdown-menu dropdown-menu-end">
 						<li class="dropdown-divider"></li>
+						<c:if test="${!emailCheck}">
+							<li><a class="dropdown-item" href="emailSend">E-mail確認</a></li>
+							</c:if>
 						<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 					</ul>
 				</div>
@@ -110,7 +117,7 @@ a {
 					</div>
 					<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
 						type="submit">LOG IN</button>
-					<a class="text-primary" href="#">ID•PASSWORDを忘れた方はこちら</a>
+					<a class="text-primary" href="#">IaaD•PASSWORDを忘れた方はこちら</a>
 					<hr class="my-4">
 
 				</form>
@@ -155,6 +162,10 @@ a {
 	integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
 	crossorigin="anonymous"></script>
 <script>
+
+		function clickEvent(){
+			alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
+		}
 		let DojoinFormSubmit = false;
 		function joinFormSubmit(form){
 			if(DojoinFormSubmit){

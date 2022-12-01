@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import user.User;
 import user.UserDAO;
+import util.SHA256;
 
 @WebServlet("/join")
 public class JoinController extends HttpServlet{
@@ -31,7 +32,10 @@ public class JoinController extends HttpServlet{
 		String userLastName = request.getParameter("userLastName");
 		String userGender = request.getParameter("userGender");
 		String userEmail = request.getParameter("userEmail");
+		String userEmailHash = SHA256.getSHA256(userEmail);
+		boolean emailCheked = false;
 		HttpSession session = request.getSession();
+		
 		
 		if(!userID.matches("^[0-9a-zA-Z]*$")) {
 			response.getWriter().append("<script> alert('IDは英語と数字だけを入力してください'); history.back(); </script>");
@@ -43,7 +47,7 @@ public class JoinController extends HttpServlet{
 			response.getWriter().append("<script> alert('Passwordは英語と数字の組み合わせで入力してください'); history.back(); </script>");
 		}else {
 		UserDAO userDAO = new UserDAO();
-		User user = new User(userID,userPassword,userFirstName,userLastName,userGender,userEmail);
+		User user = new User(userID,userPassword,userFirstName,userLastName,userGender,userEmail,userEmailHash,emailCheked);
 		int result = userDAO.join(user);
 		if(result == 0) {
 			response.getWriter().append(String

@@ -27,7 +27,7 @@ public class DaleteController extends HttpServlet{
 		userID = (String)session.getAttribute("userID");
 	}
 	if(userID == null){
-		response.getWriter().append("<script> alert('ログインしてください'); location.href='login'; </script>");
+		response.getWriter().append("<script> alert('ログインしてください'); location.href='main'; </script>");
 	}
 	int bbsID = 0;
 	if(request.getParameter("bbsID") != null){
@@ -45,7 +45,7 @@ public class DaleteController extends HttpServlet{
 			BbsDAO bbsDAO = new BbsDAO();
 			int result = bbsDAO.delete(bbsID);
 			if(result == -1){
-				response.getWriter().append("<script> alert('失敗しました'); location.href='login'; </script>");
+				response.getWriter().append("<script> alert('失敗しました'); location.href='main'; </script>");
 			}
 			else{
 				response.getWriter().append("<script> alert('削除しました'); location.href='board'; </script>");

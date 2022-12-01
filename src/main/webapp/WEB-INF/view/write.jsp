@@ -65,6 +65,10 @@ a {
 				</ul>
 				<c:if test="${empty userID}">
 					<div class="nav-item dropdown">
+					<c:if test="${!emailCheck}">
+						<a href="emailSend" class="btn btn-danger" role="button"
+							 onclick="clickEvent();" >E-MAIL確認</a>
+							</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
@@ -80,6 +84,9 @@ a {
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
+							<c:if test="${!emailCheck}">
+							<li><a class="dropdown-item" href="emailSend">E-mail確認</a></li>
+							</c:if>
 							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import bbs.Bbs;
 import bbs.BbsDAO;
+import user.UserDAO;
+
 
 @WebServlet("/board")
 public class BoardController extends HttpServlet{
@@ -41,13 +43,16 @@ public class BoardController extends HttpServlet{
 			page = Integer.parseInt(request.getParameter("p"));
 		}
 		
-		System.out.printf("%s , %s%n",field,query);
 		BbsDAO bbsDAO = new BbsDAO();
+		UserDAO userDAO = new UserDAO();
+		boolean emailCheck = userDAO.getEmailCheked(userID);
 		int count = bbsDAO.getCount();
 		ArrayList<Bbs> list = bbsDAO.getList(field,query,page);
+		
 		request.setAttribute("userID", userID);
 		request.setAttribute("list", list);
 		request.setAttribute("count", count);
+		request.setAttribute("emailCheck", emailCheck);
 		
 		
 		

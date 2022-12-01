@@ -26,9 +26,10 @@ a {
 .form-select {
 	width: 50%;
 }
-.mysearch{
-	width:30%;
-	}
+
+.mysearch {
+	width: 30%;
+}
 </style>
 <title>JSP ウェブサイト</title>
 <style type="text/css">
@@ -88,6 +89,10 @@ a {
 				</c:if>
 				<c:if test="${not empty userID}">
 					<div class="nav-item dropdown">
+					<c:if test="${!emailCheck}">
+						<a href="emailSend" class="btn btn-danger" role="button"
+							 onclick="clickEvent();" >E-MAIL確認</a>
+							</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
@@ -115,7 +120,7 @@ a {
 						method="post">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control rounded-3"
-								id="floatingInput" name="userID" placeholder="ID"> <label
+								id="floatingInput"  name="userID" placeholder="ID" autofocus> <label
 								for="floatingInput">ID</label>
 						</div>
 						<div class="form-floating mb-3">
@@ -213,9 +218,33 @@ a {
 						</ul>
 					</nav>
 				</div>
-				<c:if test="${not empty userID}">
+				<c:if test="${not empty userID && emailCheck}">
 					<div class="col">
 						<a href="write" class="btn btn-primary float-end" role="button">作成</a>
+					</div>
+				</c:if>
+				<c:if test="${not empty userID && !emailCheck}">
+					<div class="col">
+						<button type="button" class="btn btn-primary float-end"
+							data-bs-toggle="modal" data-bs-target="#exampleModal">作成</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">掲示板に投稿するためにはE-MAILの確認が必要です。<br>
+									右上のE-MAILボタンを押して確認してください。
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">閉じる</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</c:if>
 				<c:if test="${empty userID}">
@@ -245,6 +274,12 @@ a {
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	function clickEvent(){
+		alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
+	}
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
