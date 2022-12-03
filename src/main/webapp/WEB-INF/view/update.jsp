@@ -26,7 +26,7 @@ a {
 </head>
 <nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="main"><img src="image/logo.png"
+		<a class="navbar-brand" href="main"><img src="images/logo.png"
 			alt="" /></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
@@ -42,11 +42,11 @@ a {
 					class="nav-link dropdown-toggle text-primary" href="#" role="button"
 					data-bs-toggle="dropdown" aria-expanded="false"> 韓アイドル </a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">１９９０年代</a></li>
+						<li><a class="dropdown-item" href="korea1990.jsp">１９９０年代</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#">２０００年代</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="2010korea.jsp">２０1０年代</a></li>
+						<li><a class="dropdown-item" href="#">２０1０年代</a></li>
 					</ul></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle text-danger" href="#" role="button"

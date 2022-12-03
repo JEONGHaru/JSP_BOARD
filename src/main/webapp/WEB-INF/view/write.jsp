@@ -28,7 +28,7 @@ a {
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="main"><img src="image/logo.png"
+			<a class="navbar-brand" href="main"><img src="images/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -44,11 +44,11 @@ a {
 						class="nav-link dropdown-toggle text-primary" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> 韓アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="korea1990.jsp">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="2010korea.jsp">２０1０年代</a></li>
+							<li><a class="dropdown-item" href="#">２０1０年代</a></li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle text-danger" href="#" role="button"
@@ -106,7 +106,7 @@ a {
 				</div>
 
 				<div class="modal-body p-5 pt-0">
-					<form action="login" onsubmit="joinFormSubmit(this); return false;"
+					<form action="login" onsubmit="loginFormSubmit(this); return false;"
 						method="post">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control rounded-3"
@@ -131,7 +131,7 @@ a {
 	<div class="container">
 		<div class="row">
 			<form action="write" method="post"
-				onsubmit="joinFormSubmit(this); return false;">
+				onsubmit="listFormSubmit(this); return false;">
 				<table class="table table-striped"
 					style="text-align: center; border: #dddddd">
 					<thead>
@@ -163,30 +163,6 @@ a {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
 		integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
 		crossorigin="anonymous"></script>
-	<script>
-		let DojoinFormSubmit = false;
-		function joinFormSubmit(form) {
-			if (DojoinFormSubmit) {
-				alert('処理中です。');
-				return;
-			}
-
-			form.title.value = form.title.value.trim();
-			if (form.title.value.length == 0) {
-				alert('タイトルを入力してください');
-				form.title.focus();
-				return;
-			}
-			form.content.value = form.content.value.trim();
-			if (form.content.value.length == 0) {
-				alert('内容を入力してください');
-				form.content.focus();
-				return;
-			}
-
-			form.submit();
-			DojoinFormSubmit = true;
-		}
-	</script>
+	<script src="js/app.js"></script>
 </body>
 </html>

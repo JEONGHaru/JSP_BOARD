@@ -36,10 +36,9 @@ a {
 </style>
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
+<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="main"><img src="image/logo.png"
+			<a class="navbar-brand " href="main"><img src="images/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -56,7 +55,7 @@ a {
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							韓アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="korea1990.jsp">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
@@ -82,21 +81,22 @@ a {
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-								data-bs-target="#mymodal" aria-expanded="false">ログイン</a></li>
+								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
 							<li><a class="dropdown-item" href="join">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
 				<c:if test="${not empty userID}">
 					<div class="nav-item dropdown">
-					<c:if test="${!emailCheck}">
-						<a href="emailSend" class="btn btn-danger" role="button"
-							 onclick="clickEvent();" >E-MAIL確認</a>
-							</c:if>
+						<c:if test="${!emailCheck}">
+							<a href="emailSend" class="btn btn-danger" role="button"
+								onclick="clickEvent();">E-MAIL確認</a>
+						</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
+
 							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>
@@ -104,7 +104,7 @@ a {
 			</div>
 		</div>
 	</nav>
-	<div class="modal fade" id="mymodal" tabindex="-1"
+	<div class="modal fade" id="myModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
@@ -116,11 +116,12 @@ a {
 				</div>
 
 				<div class="modal-body p-5 pt-0">
-					<form action="login" onsubmit="joinFormSubmit(this); return false;"
-						method="post">
+					<form action="login"
+						onsubmit="loginFormSubmit(this); return false;" method="post">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control rounded-3"
-								id="floatingInput"  name="userID" placeholder="ID" autofocus> <label
+							<input type="text" autofocus
+								class="form-control rounded-3 myInput" id="floatingInput"
+								name="userID" placeholder="ID"> <label
 								for="floatingInput">ID</label>
 						</div>
 						<div class="form-floating mb-3">
@@ -130,7 +131,7 @@ a {
 						</div>
 						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
 							type="submit">LOG IN</button>
-						<a class="text-primary" href="#">ID•PASSWORDを忘れた方はこちら</a>
+						<a class="text-primary" href="#" hidden="hidden">ID•PASSWORDを忘れた方はこちら</a>
 						<hr class="my-4">
 
 					</form>
@@ -138,10 +139,6 @@ a {
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<div class="container mt-4">
 		<div class="row">
@@ -235,8 +232,8 @@ a {
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
-									<div class="modal-body">掲示板に投稿するためにはE-MAILの確認が必要です。<br>
-									右上のE-MAILボタンを押して確認してください。
+									<div class="modal-body">
+										掲示板に投稿するためにはE-MAILの確認が必要です。<br> 右上のE-MAILボタンを押して確認してください。
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
@@ -262,7 +259,7 @@ a {
 									<div class="modal-body">ログインしてください</div>
 									<div class="modal-footer">
 										<button class="btn btn-primary" data-bs-toggle="modal"
-											data-bs-target="#mymodal" aria-expanded="false">ログイン</button>
+											data-bs-target="#myModal" aria-expanded="false">ログイン</button>
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">閉じる</button>
 									</div>
@@ -274,15 +271,11 @@ a {
 			</div>
 		</div>
 	</div>
-	
-	<script>
-	function clickEvent(){
-		alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
-	}
-	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous"></script>
+	<script src="js/modalFocus.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>

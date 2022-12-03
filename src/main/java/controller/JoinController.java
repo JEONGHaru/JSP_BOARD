@@ -36,7 +36,7 @@ public class JoinController extends HttpServlet{
 		boolean emailCheked = false;
 		HttpSession session = request.getSession();
 		
-		
+		response.setContentType("text/html; charset=UTF-8");
 		if(!userID.matches("^[0-9a-zA-Z]*$")) {
 			response.getWriter().append("<script> alert('IDは英語と数字だけを入力してください'); history.back(); </script>");
 		}else if(!userID.substring(0, 1).matches("^[a-zA-Z]")) {

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import bbs.Bbs;
 import bbs.BbsDAO;
+import user.UserDAO;
 
 
 @WebServlet("/detail")
@@ -31,10 +32,13 @@ public class DetailController extends HttpServlet{
 		BbsDAO bbsDAO = new BbsDAO();
 		Bbs bbs = bbsDAO.getBbs(bbsID);
 		
-		
+		UserDAO userDAO = new UserDAO();
+		boolean emailCheck = userDAO.getEmailCheked(userID);
 		
 		request.setAttribute("userID", userID);
 		request.setAttribute("bbs", bbs);
+		request.setAttribute("emailCheck", emailCheck);
+		
 		request.getRequestDispatcher("/WEB-INF/view/detail.jsp").forward(request, response);
 	}
 

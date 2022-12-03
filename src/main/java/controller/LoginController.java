@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet{
 		if(userPassword_ != null && !userPassword_.equals(""))
 			userPassword = userPassword_;
 		
-		
+		response.setContentType("text/html; charset=UTF-8");
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(userID, userPassword);
 		if(result == 1){

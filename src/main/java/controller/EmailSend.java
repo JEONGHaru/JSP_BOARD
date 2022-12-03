@@ -35,7 +35,7 @@ public class EmailSend extends HttpServlet{
 		UserDAO userDAO = new UserDAO();
 		String userID = null;
 		SHA256 sha256 = new SHA256();
-		
+		response.setContentType("text/html; charset=UTF-8");
 		if(session.getAttribute("userID") != null  && !session.getAttribute("userID").equals("")) {
 			userID = (String)session.getAttribute("userID");
 		}

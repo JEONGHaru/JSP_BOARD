@@ -24,9 +24,12 @@ a {
 <title></title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="main"><img src="image/logo.png" alt="" /></a>
+			<a class="navbar-brand " href="main"><img src="images/logo.png"
+				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -38,18 +41,20 @@ a {
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="main">ホーム</a></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-primary" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 韓アイドル </a>
+						class="nav-link dropdown-toggle text-primary" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							韓アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="korea1990.jsp">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="2010korea.jsp">２０1０年代</a></li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-danger" href="#" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 日アイドル </a>
+						class="nav-link dropdown-toggle text-danger" href="#"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							日アイドル </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
@@ -65,33 +70,31 @@ a {
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="#"
-							data-bs-toggle="modal" data-bs-target="#mymodal" aria-expanded="false">ログイン</a></li>
+							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
 							<li><a class="dropdown-item" href="join">会員登録</a></li>
 						</ul>
 					</div>
-					</c:if>
-					<c:if test="${not empty userID}">
-					<c:if test="${!emailCheck}">
-						<a href="emailSend" class="btn btn-danger" role="button"
-							 onclick="clickEvent();" >E-MAIL確認</a>
-							</c:if>
-					<div class="nav-item dropdown">	
+				</c:if>
+				<c:if test="${not empty userID}">
+					<div class="nav-item dropdown">
+						<c:if test="${!emailCheck}">
+							<a href="emailSend" class="btn btn-danger" role="button"
+								onclick="clickEvent();">E-MAIL確認</a>
+						</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
-							<c:if test="${!emailCheck}">
-							<li><a class="dropdown-item" href="emailSend">E-mail確認</a></li>
-							</c:if>
+
 							<li><a class="dropdown-item" href="logout.jsp">ログアウト</a></li>
 						</ul>
 					</div>
-					</c:if>
-				</div>
+				</c:if>
 			</div>
-		</nav>
-		<div class="modal fade" id="mymodal" tabindex="-1"
+		</div>
+	</nav>
+	<div class="modal fade" id="myModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
@@ -103,22 +106,24 @@ a {
 				</div>
 
 				<div class="modal-body p-5 pt-0">
-					<form action="login" onsubmit="joinFormSubmit(this); return false;" method="post">
+					<form action="login"
+						onsubmit="loginFormSubmit(this); return false;" method="post">
 						<div class="form-floating mb-3">
-							<input type="text" class="form-control rounded-3"
-								id="floatingInput" name="userID" placeholder="ID"> <label
+							<input type="text" autofocus
+								class="form-control rounded-3 myInput" id="floatingInput"
+								name="userID" placeholder="ID"> <label
 								for="floatingInput">ID</label>
 						</div>
 						<div class="form-floating mb-3">
 							<input type="password" class="form-control rounded-3"
-								id="floatingPassword" name="userPassword" placeholder="Password"> <label
-								for="floatingPassword">PASSWORD</label>
+								id="floatingPassword" name="userPassword" placeholder="Password">
+							<label for="floatingPassword">PASSWORD</label>
 						</div>
 						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
 							type="submit">LOG IN</button>
-						<a class="text-primary" href="#">ID•PASSWORDを忘れた方はこちら</a>
+						<a class="text-primary" href="#" hidden="hidden">ID•PASSWORDを忘れた方はこちら</a>
 						<hr class="my-4">
-						
+
 					</form>
 				</div>
 			</div>

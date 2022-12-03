@@ -23,7 +23,7 @@ public class UpdateController extends HttpServlet{
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
 		}
-		
+		response.setContentType("text/html; charset=UTF-8");
 		if(userID == null){
 			response.getWriter().append("<script> alert('ログインしてください'); location.href='main'; </script>");
 			return;

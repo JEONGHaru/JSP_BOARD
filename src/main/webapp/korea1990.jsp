@@ -5,16 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" initial-scale="1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" />
-<link rel="stylesheet" href="css/style.css" />
-<title>日韓アイドル</title>
-
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+	integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="css/services.css" />
+<title>1990年代韓IDOL</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
@@ -36,7 +41,7 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							韓アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="korea1990.jsp">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="#">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
@@ -120,115 +125,115 @@
 			</div>
 		</div>
 	</div>
-
-
-	<div class="container py-4">
-		<div class="row mt-4">
-			<div class="col-sm-5">
-				<div class="fs-1">
-					<img src="images/korea.png" alt="" />韓アイドル
+	<section id="services">
+		<div class="section-content">
+			<div class="container services">
+				<div class="services-header text-center py-5">
+					<h1 class="diplay-5">韓国アイドル（2010年代)</h1>
+					<div class="divider"></div>
+					<a href="#" role="button" class="btn btn-primary ">2000年代へ</a>
 				</div>
-				<div id="carouselExampleSlidesOnly" class="carousel slide"
-					data-bs-ride="carousel">
-					<div class="carousel-inner border p-2">
-						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="images/korea/aespa.png" class="d-block w-100" alt="...">
+				<div id="slick-slide" class="services-body">
+					<div class="services-col mx-2 my-3">
+						<div class="card" >
+							<a href=""> <img src="images/korea/aespa.png" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">aespa</h4>
+								<p class="card-text fw-light mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sit esse vel minus nulla enim incidunt voluptatum iste velit doloribus modi eligendi excepturi itaque! Laboriosam quidem ullam necessitatibus atque error!</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
 						</div>
-						<div class="carousel-item">
-							<img src="images/korea/ive.png" class="d-block w-100" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="images/korea/lesserafim.jpeg"
-								class="d-block w-100 lesse" alt="...">
-						</div>
-
 					</div>
-
-				</div>
-			</div>
-			<div class="col-sm-5 offset-sm-2">
-				<div class="fs-1">
-					<img src="images/japan.png" alt="" />日アイドル
-				</div>
-
-				<div id="carouselExampleSlidesOnly" class="carousel slide"
-					data-bs-ride="carousel">
-					<div class="carousel-inner badge border p-2">
-						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="images/japan/nogizaka.png" class="d-block w-100 nogi"
-								alt="...">
+					<div class="services-col mx-2 my-3">
+						<div class="card">
+							<a href=""> <img src="images/korea/ive.png" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">IVE</h4>
+								<p class="card-text fw-light mb-4">IVE</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
 						</div>
-						<div class="carousel-item">
-							<img src="images/japan/momoiro.png" class="d-block w-100"
-								alt="...">
+					</div>
+					<div class="services-col mx-2 my-3">
+						<div class="card">
+							<a href=""> <img src="images/korea/lesserafim.jpeg" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">Lesserafim</h4>
+								<p class="card-text fw-light mb-4">Lesserafim</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
 						</div>
-						<div class="carousel-item">
-							<img src="images/japan/perfume.jpeg" class="d-block w-100"
-								alt="...">
+					</div>
+					<div class="services-col mx-2 my-3">
+						<div class="card">
+							<a href=""> <img src="images/japan/nogizaka.png" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">乃木坂46</h4>
+								<p class="card-text fw-light mb-4">乃木坂46</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
+						</div>
+					</div>
+					<div class="services-col mx-2 my-3">
+						<div class="card">
+							<a href=""> <img src="images/japan/momoiro.png" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">ももいろクローバーZ</h4>
+								<p class="card-text fw-light mb-4">ももいろクローバーZ</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
+						</div>
+					</div>
+					<div class="services-col mx-2 my-3">
+						<div class="card">
+							<a href=""> <img src="images/japan/perfume.jpeg" alt=""
+								class="card-img-top" />
+							</a>
+							<div class="card-body">
+								<h4 class="card-title">Perfume</h4>
+								<p class="card-text fw-light mb-4">Perfume</p>
+								<a href="#" class="btn btn-primary">View more</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container-fulid">
-		<div class="row justify-content-center">
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/korea/aespa.png" class="card-img-top" alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">aespa</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
-			</div>
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/japan/nogizaka.png" class="card-img-top" alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">乃木坂46</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
-			</div>
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/korea/ive.png" class="card-img-top" alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">IVE</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
-			</div>
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/japan/momoiro.png" class="card-img-top" alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">ももいろクローバーZ</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
-			</div>
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/korea/lesserafim.jpeg" class="card-img-top"
-					alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">Lesserafim</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
-			</div>
-			<div class="card m-2" style="width: 18rem;">
-				<img src="images/japan/perfume.jpeg" class="card-img-top" alt="...">
-				<div class="card-body">
-					<label class="card-title fs-4">Perfume</label>
-					<p class="card-text"></p>
-					<a href="#" class="btn btn-primary">Go</a>
-				</div>
+	</section>
+
+	<section class="py-5 text-center container">
+		<div class="row py-lg-5">
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">韓国アイドル（2010年代)</h1>
+				<a href="#" role="button" class="btn btn-primary my-2 mt-4">2000年代へ</a>
 			</div>
 		</div>
-	</div>
+	</section>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js"
+		integrity="sha512-yBpuflZmP5lwMzZ03hiCLzA94N0K2vgBtJgqQ2E1meJzmIBfjbb7k4Y23k2i2c/rIeSUGc7jojyIY5waK3ZxCQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+		integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 	<script src="js/app.js"></script>
-	<script src="js/modalFocus.js"></script>
+	<script src="js/slick.js"></script>
+
 </body>
 </html>

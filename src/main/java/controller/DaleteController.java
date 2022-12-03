@@ -20,7 +20,7 @@ public class DaleteController extends HttpServlet{
 		
 	
 	HttpSession session = request.getSession();
-	
+	response.setContentType("text/html; charset=UTF-8");
 	String userID = null;
 	if(session.getAttribute("userID") != null){
 		
