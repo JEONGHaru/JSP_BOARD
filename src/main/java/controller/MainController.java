@@ -18,7 +18,6 @@ public class MainController extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		
 		String userID = null;
 		if(session.getAttribute("userID") != null  && !session.getAttribute("userID").equals("")){
 			userID = (String) session.getAttribute("userID");

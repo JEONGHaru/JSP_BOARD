@@ -1,10 +1,5 @@
-package controller;
+package board.command;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,13 +8,10 @@ import bbs.Bbs;
 import bbs.BbsDAO;
 import user.UserDAO;
 
+public class BoardDetail implements BoardCommand{
 
-@WebServlet("/detail")
-public class DetailController extends HttpServlet{
-	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		
 		String userID = null;
@@ -39,7 +31,6 @@ public class DetailController extends HttpServlet{
 		request.setAttribute("bbs", bbs);
 		request.setAttribute("emailCheck", emailCheck);
 		
-		request.getRequestDispatcher("/WEB-INF/view/detail.jsp").forward(request, response);
 	}
 
 }

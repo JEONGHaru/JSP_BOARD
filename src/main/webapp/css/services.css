@@ -1,20 +1,26 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/earlyaccess/kokoro.css");
-
-* {
-	font-family: 'Kokoro', serif;
-}
 
 #services {
 	background-color: rgba(96, 125, 139, 0.1);
 }
 
-#services .divider {
+#services .korea{
+	width: 100px;
+    height: 100px;
+    border: 5px solid transparent;
+    border-radius: 90%;
+    background-image: linear-gradient(to top,#083be2 10%,#f21128 );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    margin: 2rem auto;
+    
+}
+#services .japan{
 	width: 100px;
     height: 100px;
     border: 5px solid transparent;
     border-radius: 50%;
-    background-image: linear-gradient(360deg,#083be2 20%,#f21128 );
+    background-image: linear-gradient(to top, #f21128 70%,#ffb199 100%);
     background-origin: border-box;
     background-clip: content-box, border-box;
     margin: 2rem auto;

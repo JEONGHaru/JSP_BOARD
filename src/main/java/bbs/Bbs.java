@@ -1,7 +1,7 @@
 package bbs;
 
+
 public class Bbs {
-	
 	private int id;
 	private String title;
 	private String userID;
@@ -10,6 +10,7 @@ public class Bbs {
 	private int available;
 	
 	public Bbs() {
+		
 	}
 
 	public Bbs(int id, String title, String userID, String regDate, String content, int available) {
@@ -69,16 +70,6 @@ public class Bbs {
 	public void setAvailable(int available) {
 		this.available = available;
 	}
-
-	@Override
-	public String toString() {
-		return "Bbs [id=" + id + ", title=" + title + ", userID=" + userID + ", regDate=" + regDate + ", content="
-				+ content + ", available=" + available + "]";
-	}
-
-	
-	
-	
 	
 	
 }

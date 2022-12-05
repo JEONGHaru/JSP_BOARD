@@ -17,5 +17,11 @@ a {
 .card>img {
 	height: 175px;
 }
+.form-select {
+	width: 50%;
+}
 
+.mysearch {
+	width: 30%;
+}
 

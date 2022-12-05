@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -19,7 +18,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
 	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-	
 	<link rel="stylesheet" href="css/services.css" />
 <title>1990年代韓IDOL</title>
 </head>
@@ -131,8 +129,8 @@
 		<div class="section-content">
 			<div class="container services">
 				<div class="services-header text-center py-5">
-					<h1 class="diplay-5">韓国アイドル（1990年代)</h1>
-					<div class="divider korea"></div>
+					<h1 class="diplay-5">日本アイドル（1990年代)</h1>
+					<div class="divider japan"></div>
 				</div>
 				<div id="slick-slide" class="services-body">
 					<div class="services-col mx-2 my-3">
@@ -142,7 +140,7 @@
 							</a>
 							<div class="card-body">
 								<h4 class="card-title">aespa</h4>
-								<p class="card-text fw-light mb-4"></p>
+								<p class="card-text fw-light mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sit esse vel minus nulla enim incidunt voluptatum iste velit doloribus modi eligendi excepturi itaque! Laboriosam quidem ullam necessitatibus atque error!</p>
 								<a href="#" class="btn btn-primary">View more</a>
 							</div>
 						</div>
@@ -220,7 +218,6 @@
 			</div>
 		</div>
 	</section>
-	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js"
 		integrity="sha512-yBpuflZmP5lwMzZ03hiCLzA94N0K2vgBtJgqQ2E1meJzmIBfjbb7k4Y23k2i2c/rIeSUGc7jojyIY5waK3ZxCQ=="
