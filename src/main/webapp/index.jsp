@@ -2,5 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 
-response.sendRedirect("main");
+RequestDispatcher dis = 
+request.getRequestDispatcher("WEB-INF/view/main.jsp");
+dis.forward(request,response);
+
 %>

@@ -14,14 +14,14 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <title>日韓アイドル</title>
 
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand " href="/main"><img src="/images/logo.png"
+			<a class="navbar-brand " href="/main"><img src="${pageContext.request.contextPath}/images/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -38,41 +38,45 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							韓アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="album/korea1990">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="/album/korea/year1990">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="korea2000.jsp">２０００年代</a></li>
+							<li><a class="dropdown-item" href="/album/korea/year2000">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="korea2010.jsp">２０1０年代</a></li>
+							<li><a class="dropdown-item" href="/album/korea/year2010">２０１０年代</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="/album/korea/year2020">２０２０年代</a></li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle text-danger" href="#"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							日アイドル </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="japan1990.jsp">１９９０年代</a></li>
+							<li><a class="dropdown-item" href="/album/japan/year1990">１９９０年代</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="japan2000.jsp">２０００年代</a></li>
+							<li><a class="dropdown-item" href="/album/japan/year2000">２０００年代</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="japan2010.jsp">２０1０年代</a></li>
+							<li><a class="dropdown-item" href="/album/japan/year2010">２０１０年代</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="/album/japan/year2020">２０２０年代</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="/board/list">掲示板</a>
 					</li>
 				</ul>
-				<c:if test="${empty userID}">
+				<c:if test="${empty principal}">
 					<div class="nav-item dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="join">会員登録</a></li>
+							<li><a class="dropdown-item" href="join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
-				<c:if test="${not empty userID}">
+				<c:if test="${not empty principal}">
 					<div class="nav-item dropdown">
-						<c:if test="${!emailCheck}">
-							<a href="emailSend" class="btn btn-danger" role="button"
+						<c:if test="${!isEmailCheck}">
+							<a href="/user/emailSend" class="btn btn-danger" role="button"
 								onclick="clickEvent();">E-MAIL確認</a>
 						</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
@@ -80,7 +84,7 @@
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
 
-							<li><a class="dropdown-item" href="/logout.jsp">ログアウト</a></li>
+							<li><a class="dropdown-item" href="/user/logout">ログアウト</a></li>
 						</ul>
 					</div>
 				</c:if>

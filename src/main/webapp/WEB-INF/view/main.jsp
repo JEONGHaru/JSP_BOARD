@@ -11,13 +11,13 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner border p-2">
 						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="images/korea/aespa.png" class="d-block w-100" alt="...">
+							<img src="images/korea/Aespa.png" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="images/korea/ive.png" class="d-block w-100" alt="...">
+							<img src="images/korea/Ive.png" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="images/korea/lesserafim.jpeg"
+							<img src="images/korea/Lesserafim.jpeg"
 								class="d-block w-100 lesse" alt="...">
 						</div>
 
@@ -34,15 +34,15 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner badge border p-2">
 						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="images/japan/nogizaka.png" class="d-block w-100 nogi"
+							<img src="images/japan/乃木坂46.png" class="d-block w-100 nogi"
 								alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="images/japan/momoiro.png" class="d-block w-100"
+							<img src="images/japan/ももいろクローバーZ.png" class="d-block w-100"
 								alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="images/japan/perfume.jpeg" class="d-block w-100"
+							<img src="images/japan/Perfume.jpeg" class="d-block w-100"
 								alt="...">
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 	<div class="container-fulid">
 		<div class="row justify-content-center">
 			<div class="card m-2" style="width: 18rem;">
-				<img src="images/korea/aespa.png" class="card-img-top" alt="...">
+				<img src="images/korea/Aespa.png" class="card-img-top" alt="...">
 				<div class="card-body">
 					<label class="card-title fs-4">aespa</label>
 					<p class="card-text"></p>
