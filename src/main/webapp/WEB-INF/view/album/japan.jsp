@@ -12,13 +12,12 @@
 					<c:forEach var="n" items="${list}" varStatus="vs">
 						<div class="services-col mx-2 my-3">
 							<div class="card" >
-								<a href=""> <img src="${n.filePath}" alt=""
+								<a href="#${fn:substringBefore(n.groupName,'.')}"> <img src="${n.filePath}" alt=""
 									class="card-img-top" />
 								</a>
 								<div class="card-body">
 									<h4 class="card-title">${fn:substringBefore(n.groupName,'.')}</h4>
 									<p class="card-text fw-light mb-4">デビュー年：${n.year} </p>
-									<a href="#" class="btn btn-primary">メンバー</a>
 								</div>
 							</div>
 						</div>
@@ -28,14 +27,20 @@
 		</div>
 	</section>
 
-	<section class="py-5 text-center container">
-		<div class="row py-lg-5">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<h1 class="fw-light">韓国アイドル（2010年代)</h1>
-				<a href="#" role="button" class="btn btn-primary my-2 mt-4">2000年代へ</a>
+	<div class="container-fulid">
+		<div class="row justify-content-center">
+		<c:forEach var="n" items="${list}">
+			<div class="card m-2" style="width: 18rem;">
+				<img src="${n.filePath}" class="card-img-top" alt="...">
+				<div class="card-body" id="${fn:substringBefore(n.groupName,'.')}">
+					<label class="card-title fs-4">${fn:substringBefore(n.groupName,'.')}</label>
+					<p class="card-text"></p>
+					<a href="#" class="btn btn-primary">Go</a>
+				</div>
 			</div>
+			</c:forEach>
 		</div>
-	</section>
+	</div>
 	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js"

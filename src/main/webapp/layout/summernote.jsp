@@ -21,7 +21,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand " href="/main"><img src="${pageContext.request.contextPath}/images/logo.png"
+			<a class="navbar-brand " href="/main"><img src="/images/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,30 +34,70 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/main">ホーム</a></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-primary" href="#"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						class="nav-link dropdown-toggle text-primary" 
+						role="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
 							韓アイドル </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/album/korea/year1990">１９９０年代</a></li>
+						<ul class="dropdown-menu dropend">
+							<li><a class="dropdown-item dropdown-toggle" role="button" >１９９０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year1990/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year1990/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2000">２０００年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2000/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2010">２０１０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2010/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2020">２０２０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2020/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-danger" href="#"
+						class="nav-link dropdown-toggle text-danger" disabled
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							日アイドル </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/album/japan/year1990">１９９０年代</a></li>
+						<ul class="dropdown-menu dropend">
+							<li><a class="dropdown-item dropdown-toggle" role="button">１９９０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year1990/boy" class="dropdown-item text-center">BoyGroup</a></li>
+									<li><a href="/album/japan/year1990/girl" class="dropdown-item text-center">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2000">２０００年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2000/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2010">２０１０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2010/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2020">２０２０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2020/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="/board/list">掲示板</a>
 					</li>
@@ -69,7 +109,7 @@
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="join_view">会員登録</a></li>
+							<li><a class="dropdown-item" href="/user/join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>

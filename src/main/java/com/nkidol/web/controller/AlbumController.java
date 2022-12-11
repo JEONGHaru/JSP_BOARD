@@ -28,8 +28,6 @@ public class AlbumController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String URI = request.getRequestURI();
-		System.out.println(URI);
-		System.out.println("start");
 		AlbumCommand command = new AlbumView();
 		command.execute(request, response);
 		if(URI.contains("/korea")) {

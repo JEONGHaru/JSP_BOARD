@@ -20,14 +20,14 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
 	integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/services.css" />
 <title>1990年代韓IDOL</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-light shadow-lg sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand " href="/main"><img src="${pageContext.request.contextPath}/images/logo.png"
+			<a class="navbar-brand " href="/main"><img src="/images/logo.png"
 				alt="" /></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -40,49 +40,89 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="/main">ホーム</a></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-primary" href="#"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						class="nav-link dropdown-toggle text-primary" 
+						role="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
 							韓アイドル </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/album/korea/year1990">１９９０年代</a></li>
+						<ul class="dropdown-menu dropend">
+							<li><a class="dropdown-item dropdown-toggle" role="button" >１９９０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year1990/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year1990/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2000">２０００年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2000/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2010">２０１０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2010/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/korea/year2020">２０２０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/korea/year2020/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 						</ul></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle text-danger" href="#"
+						class="nav-link dropdown-toggle text-danger" disabled
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							日アイドル </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/album/japan/year1990">１９９０年代</a></li>
+						<ul class="dropdown-menu dropend">
+							<li><a class="dropdown-item dropdown-toggle" role="button">１９９０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year1990/boy" class="dropdown-item text-center">BoyGroup</a></li>
+									<li><a href="/album/japan/year1990/girl" class="dropdown-item text-center">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2000">２０００年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2000/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2010">２０１０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2010/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="/album/japan/year2020">２０２０年代</a></li>
+							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
+								<ul class="dropdown-menu submenu">
+									<li><a href="/album/japan/year2020/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+								</ul>
+							</li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="/board/list">掲示板</a>
 					</li>
 				</ul>
-				<c:if test="${empty userID}">
+				<c:if test="${empty principal}">
 					<div class="nav-item dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="/user/join">会員登録</a></li>
+							<li><a class="dropdown-item" href="/user/join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
-				<c:if test="${not empty userID}">
+				<c:if test="${not empty principal}">
 					<div class="nav-item dropdown">
-						<c:if test="${!emailCheck}">
-							<a href="emailSend" class="btn btn-danger" role="button"
+						<c:if test="${!isEmailCheck}">
+							<a href="/user/emailSend" class="btn btn-danger" role="button"
 								onclick="clickEvent();">E-MAIL確認</a>
 						</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
