@@ -107,9 +107,9 @@
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+							<li><a class="dropdown-item text-start" href="#" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="/user/join_view">会員登録</a></li>
+							<li><a class="dropdown-item text-start" href="/user/join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
@@ -124,7 +124,7 @@
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
 
-							<li><a class="dropdown-item" href="/user/logout">ログアウト</a></li>
+							<li><a class="dropdown-item text-start" href="/user/logout">ログアウト</a></li>
 						</ul>
 					</div>
 				</c:if>

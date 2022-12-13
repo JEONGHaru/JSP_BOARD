@@ -21,5 +21,5 @@ public class User {
 	private String userEmail;
 	private String userEmailHash;
 	private boolean emailChecked;
-	
+	private int userGrade;
 }

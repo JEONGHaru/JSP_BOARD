@@ -35,10 +35,12 @@ public class UserJoin implements UserCommand {
 		JoinDTO joinDTO = new JoinDTO(userID,userPassword,userFirstName,userLastName,userGender,userEmail,userEmailHash);
 		System.out.println(joinDTO);
 		int result = userService.join(joinDTO);
+		HttpSession session = request.getSession();
 		if(result == 0) {
 			Script.back(response, "そのIDは利用できません");
 			
 		}else {
+			session.setAttribute("principal", userID);
 			Script.save(response, "会員登録ありがとうございます", "/main");
 		}
 		}

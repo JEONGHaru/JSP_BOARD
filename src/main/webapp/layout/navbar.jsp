@@ -12,6 +12,7 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link type="text/css;" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <title>日韓アイドル</title>
 <style type="text/css">
@@ -73,8 +74,8 @@
 						<ul class="dropdown-menu dropend">
 							<li><a class="dropdown-item dropdown-toggle" role="button">１９９０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year1990/boy" class="dropdown-item text-center">BoyGroup</a></li>
-									<li><a href="/album/japan/year1990/girl" class="dropdown-item text-center">GirlGroup</a></li>
+									<li><a href="/album/japan/year1990/boy" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year1990/girl" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
@@ -103,13 +104,13 @@
 					</li>
 				</ul>
 				<c:if test="${empty principal}">
-					<div class="nav-item dropdown">
+					<div class="nav-item dropdown pe-3">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
-						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item text-start" role="button" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="/user/join_view">会員登録</a></li>
+							<li><a class="dropdown-item text-start" href="/user/join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
@@ -124,7 +125,7 @@
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
 
-							<li><a class="dropdown-item" href="/user/logout">ログアウト</a></li>
+							<li><a class="dropdown-item text-start" href="/user/logout">ログアウト</a></li>
 						</ul>
 					</div>
 				</c:if>

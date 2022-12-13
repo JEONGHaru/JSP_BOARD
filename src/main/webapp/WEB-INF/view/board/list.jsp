@@ -1,10 +1,152 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ include file="/layout/navbar.jsp" %>
-	<div class="container mt-4">
-		<div class="row">
-			<form class="col d-flex m-2 justify-content-end" role="search">
+<%@ include file="/layout/navbar.jsp"%>
+
+
+<div class="container subnav mt-4">
+	<div class="row">
+		<div class="col-md-3 sm-12">
+			<div class="pe-5 bg-white">
+				<span class="fs-5 fw-semibold">HOME</span>
+				<div class="border-top my-3"></div>
+				<ul class="list-unstyled ps-0">
+					<li class="mb-1 pb-3">
+						<button
+							class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed 
+							text-primary krButton"
+							data-bs-toggle="collapse" data-bs-target="#idolkr-collapse"
+							aria-expanded="false">韓アイドル</button>
+						<div class="collapse" id="idolkr-collapse">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender1990-collapse" aria-expanded="false">1990年代</button>
+									<div class="collapse" id="gender1990-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/korea/year1990/boy">BoyGroup</a></li>
+											<li><a href="/album/korea/year1990/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2000-collapse" aria-expanded="false">2000年代</button>
+									<div class="collapse" id="gender2000-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/korea/year2000/boy">BoyGroup</a></li>
+											<li><a href="/album/korea/year2000/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2010-collapse" aria-expanded="false">2010年代</button>
+									<div class="collapse" id="gender2010-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/korea/year2010/boy">BoyGroup</a></li>
+											<li><a href="/album/korea/year2010/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2020-collapse" aria-expanded="false">2020年代</button>
+									<div class="collapse" id="gender2020-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/korea/year2020/boy">BoyGroup</a></li>
+											<li><a href="/album/korea/year2020/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+							</ul>
+						</div>
+					</li>
+					<li class="mb-1 pb-3">
+						<button
+							class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed 
+							text-danger jpButton"
+							data-bs-toggle="collapse" data-bs-target="#idoljp-collapse"
+							aria-expanded="false">日アイドル</button>
+						<div class="collapse" id="idoljp-collapse">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender1990-collapse" aria-expanded="false">1990年代</button>
+									<div class="collapse" id="gender1990-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/japan/year1990/boy">BoyGroup</a></li>
+											<li><a href="/album/japan/year1990/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2000-collapse" aria-expanded="false">2000年代</button>
+									<div class="collapse" id="gender2000-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/japan/year2000/boy">BoyGroup</a></li>
+											<li><a href="/album/japan/year2000/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2010-collapse" aria-expanded="false">2010年代</button>
+									<div class="collapse" id="gender2010-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/japan/year2010/boy">BoyGroup</a></li>
+											<li><a href="/album/japan/year2010/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+								<li class="p-1"><button
+										class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+										data-bs-toggle="collapse"
+										data-bs-target="#gender2020-collapse" aria-expanded="false">2020年代</button>
+									<div class="collapse" id="gender2020-collapse">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li><a href="/album/japan/year2020/boy">BoyGroup</a></li>
+											<li><a href="/album/japan/year2020/girl">GrilGroup</a></li>
+											<li></li>
+										</ul>
+									</div></li>
+							</ul>
+						</div>
+					</li>
+					<li class="border-top my-3"></li>
+					<li class="mb-1">
+						<button
+							class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed
+							text-success"
+							data-bs-toggle="collapse" data-bs-target="#account-collapse"
+							aria-expanded="false">アクセス</button>
+						<div class="collapse" id="account-collapse">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+							<c:if test="${empty principal }">
+								<li class="p-1"><a href="#"
+									data-bs-toggle="modal"
+								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
+								<li class="p-1"><a href="/user/join_view">会員登録</a></li>
+								</c:if>
+								<c:if test="${!empty principal }">
+								<li class="p-1"><a href="/user/logout">ログアウト</a></li>
+									</c:if>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col">
+			<form class="d-flex m-2 justify-content-end" role="search">
 				<fieldset class="d-flex">
 					<legend hidden="hidden">検索フィールド</legend>
 					<label hidden="hideen">検索分類</label> <select
@@ -17,7 +159,8 @@
 					<button class="btn btn-outline-primary mysearch" type="submit">検索</button>
 				</fieldset>
 			</form>
-			<table class="table table-striped table-hover"
+
+			<table class="col-md-4 table table-striped table-hover"
 				style="text-align: center; border: #dddddd">
 				<thead>
 					<tr>
@@ -35,7 +178,8 @@
 							<td><a href="detail?bbsID=${n.id }"><c:out
 										value="${n.title}"></c:out></a></td>
 							<td>${n.userID }</td>
-							<td><fmt:formatDate pattern="yyyy/MM/dd hh:mm:ss" value="${n.regDate }"/></td>
+							<td><fmt:formatDate pattern="yyyy/MM/dd hh:mm:ss"
+									value="${n.regDate }" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -79,7 +223,8 @@
 				</div>
 				<c:if test="${not empty principal && isEmailCheck}">
 					<div class="col">
-						<a href="write_view" class="btn btn-primary float-end" role="button">作成</a>
+						<a href="write_view" class="btn btn-primary float-end"
+							role="button">作成</a>
 					</div>
 				</c:if>
 				<c:if test="${not empty principal && !isEmailCheck}">
@@ -133,11 +278,13 @@
 			</div>
 		</div>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous"></script>
-	<script src="/js/modalFocus.js"></script>
-	<script src="/js/app.js"></script>
+</div>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+	crossorigin="anonymous"></script>
+<script src="/js/modalFocus.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>

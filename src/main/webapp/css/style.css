@@ -4,6 +4,10 @@
 * {
 	font-family: 'Kokoro', serif;
 }
+a {
+	text-decoration-line: none;
+	color: inherit;
+}
 
 .dropdown-menu>li:hover>.submenu{
 	display: block;
@@ -16,10 +20,6 @@
 	height: 500px;
 }
 
-a {
-	text-decoration-line: none;
-	color: inherit;
-}
 
 .card>img {
 	height: 175px;

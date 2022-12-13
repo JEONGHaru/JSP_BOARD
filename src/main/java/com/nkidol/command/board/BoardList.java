@@ -34,7 +34,6 @@ public class BoardList implements BoardCommand{
 		ListDTO listDTO = new ListDTO(field,query,page);
 		int count = boardSevice.BoardCount();
 		ArrayList<Board> list = boardSevice.BoardList(listDTO);
-		System.out.println(list);
 		request.setAttribute("list", list);
 		request.setAttribute("count", count);
 	}

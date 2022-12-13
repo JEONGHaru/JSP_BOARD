@@ -79,8 +79,8 @@
 						<ul class="dropdown-menu dropend">
 							<li><a class="dropdown-item dropdown-toggle" role="button">１９９０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year1990/boy" class="dropdown-item text-center">BoyGroup</a></li>
-									<li><a href="/album/japan/year1990/girl" class="dropdown-item text-center">GirlGroup</a></li>
+									<li><a href="/album/japan/year1990/boy" class="dropdown-item ">BoyGroup</a></li>
+									<li><a href="/album/japan/year1990/girl" class="dropdown-item ">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
@@ -113,9 +113,9 @@
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">ログイン</button>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+							<li><a class="dropdown-item text-start" href="#" data-bs-toggle="modal"
 								data-bs-target="#myModal" aria-expanded="false">ログイン</a></li>
-							<li><a class="dropdown-item" href="/user/join_view">会員登録</a></li>
+							<li><a class="dropdown-item text-start" href="/user/join_view">会員登録</a></li>
 						</ul>
 					</div>
 				</c:if>
@@ -130,7 +130,7 @@
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li class="dropdown-divider"></li>
 
-							<li><a class="dropdown-item" href="/user/logout">ログアウト</a></li>
+							<li><a class="dropdown-item text-start" href="/user/logout">ログアウト</a></li>
 						</ul>
 					</div>
 				</c:if>

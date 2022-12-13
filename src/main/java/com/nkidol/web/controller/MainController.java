@@ -34,7 +34,6 @@ public class MainController extends HttpServlet{
 		for(int i =0;i<3;i++) {
 			japanList.add(japanImages+japan[ran.nextInt(japan.length)]);
 		}
-		System.out.println(koreaList);
 		request.setAttribute("koreaList", koreaList);
 		request.setAttribute("japanList", japanList);
 		request.getRequestDispatcher("/WEB-INF/view/main.jsp").forward(request, response);

@@ -29,10 +29,10 @@
 				</tbody>
 			</table>
 			<div class="container d-flex">
-				<a href="board" class="btn btn-primary">トップページ</a>
+				<a href="list" class="btn btn-primary">トップページ</a>
 				<div class="ms-auto">
-				<c:if test="${userID != null && userID == board.userID}">
-					<a href="update_view?bbsID=${board.id }" class="btn btn-warning">修正</a>
+				<c:if test="${principal != null && principal.userID == board.userID}">
+					<a href="update_view?bbsID=${board.id}" class="btn btn-warning">修正</a>
 					<a onclick="return confirm('本当に 削除しますか?')"
 						href="delete?bbsID=${board.id}" class="btn btn-danger">削除</a>
 				</c:if>

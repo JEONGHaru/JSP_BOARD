@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/layout/slick.jsp" %>
-	<section id="services">
+	<div id="services">
 		<div class="section-content">
 			<div class="container services">
 				<div class="services-header text-center py-5">
@@ -25,12 +25,12 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 	<div class="container-fulid">
 		<div class="row justify-content-center">
 		<c:forEach var="n" items="${list}">
-			<div class="card m-2" style="width: 18rem;">
+			<div class="card m-2 myCard" style="width: 18rem;">
 				<img src="${n.filePath}" class="card-img-top" alt="...">
 				<div class="card-body" id="${fn:substringBefore(n.groupName,'.')}">
 					<label class="card-title fs-4">${fn:substringBefore(n.groupName,'.')}</label>

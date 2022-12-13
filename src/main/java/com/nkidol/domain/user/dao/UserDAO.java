@@ -5,35 +5,48 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.nkidol.domain.user.User;
 import com.nkidol.domain.user.dto.JoinDTO;
 import com.nkidol.domain.user.dto.LoginDTO;
 import com.nkidol.util.DatabaseUtil;
 
 public class UserDAO {
 	
-	public int findByUser(LoginDTO dto) {
+	public User findByUser(LoginDTO dto) {
 		
-		String SQL = "SELECT userPassword FROM USER WHERE userID=?";
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT userID,userFirstName,userEmail,emailChecked,userGrade ");
+		sb.append("FROM USER WHERE userID = ? AND userPassword = ?");
+		
+		String SQL = sb.toString();
 		
 		try {
 			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, dto.getUserID());
+			pstmt.setString(2, dto.getUserPassword());
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString(1).equals(dto.getUserPassword())) {
-					return 1;  //로그인 성공
-				}else return 0;  //비밀번호 불일치
+				User user = User.builder()
+						.userID(rs.getString("userID"))
+						.userFirstName(rs.getString("userFirstName"))
+						.userEmail(rs.getString("userEmail"))
+						.emailChecked(rs.getBoolean("emailChecked"))
+						.userGrade(rs.getInt("userGrade"))
+						.build();
+						System.out.println(rs.getBoolean("emailChecked"));
+				conn.close();
+				pstmt.close();
+				rs.close();
+				return user;
 			}
-			conn.close();
-			pstmt.close();
-			rs.close();
-			return -1; //아이디가 없음
+			
+			return null; //아이디가 없음
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return -2;  //데이터 베이스 오류
+		return null;  //데이터 베이스 오류
 	}
 	
 	public int sava(JoinDTO dto) {
@@ -135,4 +148,26 @@ public class UserDAO {
 	
 	
 }
+
+	public int findByUserID(String userID) {
+		
+		String SQL = "SELECT * FROM USER WHERE userID = ?";
+		
+		try {
+			Connection conn = DatabaseUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) return 1;  //IDある
+			
+			conn.close();
+			pstmt.close();
+			rs.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return -1;  //IDない
+	}
 }

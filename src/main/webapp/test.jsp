@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<img src="images/logo.png" alt="" />
+	<%
+		String directory = application.getRealPath("/images");
+		String directory2 = request.getServletContext().getRealPath("/images");
+	%>
+	<%= directory %>
+	<%= directory2 %>
 </body>
 </html>

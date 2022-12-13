@@ -14,10 +14,7 @@ public class BoardWriteView implements BoardCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)  {
 		HttpSession session = request.getSession();
-		String userID = null;
-		if(session.getAttribute("principal") != null){
-			userID = (String)session.getAttribute("principal");
-		}else {
+		if(session.getAttribute("principal") == null){
 			Script.back(response, "ログインしてください");
 		}
 	}

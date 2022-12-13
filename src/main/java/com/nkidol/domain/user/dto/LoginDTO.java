@@ -12,10 +12,4 @@ public class LoginDTO {
 	private String userID;
 	private String userPassword;
 	
-	
-	
-	
-	
-	
-	
 }

@@ -20,12 +20,12 @@ function loginFormSubmit(form) {
 	}
 
 	form.submit();
-	
+
 };
-let DojoinFormSubmit = false;
-function joinFormSubmit(form) {
-	
-	if (DojoinFormSubmit) {
+function loginFormSubmit(form) {
+let DologinFormSubmit = false;
+
+	if (DologinFormSubmit) {
 		alert('処理中です。');
 		return;
 	}
@@ -43,12 +43,12 @@ function joinFormSubmit(form) {
 		return;
 	}
 	form.submit();
-	DojoinFormSubmit = true;
+	DologinFormSubmit = true;
 };
 
 let DolistFormSubmit = false;
 function listFormSubmit(form) {
-	
+
 	if (DolistFormSubmit) {
 		alert('処理中です。');
 		return;
@@ -69,4 +69,68 @@ function listFormSubmit(form) {
 	form.submit();
 	DolistFormSubmit = true;
 };
+let DojoinFormSubmit = false;
+let DojoinIdchecking = false;
+function joinFormSubmit(form) {
+	if (DojoinFormSubmit) {
+		alert('処理中です。');
+		return;
+	}
+	if(DojoinIdchecking == false){
+		alert('IDCHECKをしてください');
+		return;
+	}
+	form.userID.value = form.userID.value.trim();
+	if (form.userID.value.length == 0) {
+		alert('IDを入力してください');
+		form.userID.focus();
+		return;
+	}
+	form.userPassword.value = form.userPassword.value.trim();
+	if (form.userPassword.value.length == 0) {
+		alert('パスワードを入力してください');
+		form.userPassword.focus();
+		return;
+	}
+
+	if (form.userPassword.value != form.userPassword2.value) {
+		alert('パスワードが異なります');
+		form.userPassword.focus();
+		return;
+	}
+	form.userName.value = form.userName.value.trim();
+	if (form.userName.value.length == 0) {
+		alert('名前を入力してください');
+		form.userName.focus();
+		return;
+	}
+	form.userEmail.value = form.userEmail.value.trim();
+	if (form.userEmail.value.length == 0) {
+		alert('E-Mailを入力してください');
+		form.userEmail.focus();
+		return;
+	}
+
+	form.submit();
+	DojoinFormSubmit = true;
+};
+
+function userIDCheck() {
+	const userID = $("#userID").val();
+	console.log(userID);
+	$.ajax({
+		type: "POST",
+		url: "/user/IDCheck",
+		data: userID,
+		contentType: "text/plain; charset=UTF-8",
+		dataType: "text"
+	}).done(function(data) {
+		if (data == 'ok') {
+			alert('そのIDは利用できません');
+		} else if (data == 'no') {
+			alert('利用可能なIDです');
+			DojoinIdchecking = true;
+		}
+	});
+}
 

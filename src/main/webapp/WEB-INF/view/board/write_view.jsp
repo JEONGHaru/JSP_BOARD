@@ -5,6 +5,7 @@
 		<div class="row">
 			<form action="write" method="post"
 				onsubmit="listFormSubmit(this); return false;">
+				<input type="hidden" name="userID" value="${principal.userID}" />
 				<table class="table table-striped">
 					<tbody>
 						<tr>

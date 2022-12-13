@@ -18,9 +18,15 @@ public class UserService {
 		return result;
 	}
 	
-	public int login(LoginDTO dto) {
+	public User login(LoginDTO dto) {
 		
-		int result = userDAO.findByUser(dto);
+		return userDAO.findByUser(dto);
+	}
+	
+	public int idCheck(String userID) {
+		
+		int result = userDAO.findByUserID(userID);
+		
 		return result;
 	}
 }

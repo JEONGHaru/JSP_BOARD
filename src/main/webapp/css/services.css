@@ -28,11 +28,21 @@
     
 }
 
-#services .services-colv .card {
+#services .services-col .card {
 	transition: 0.4s ease;
 }
 
 #services .services-col .card:hover {
+	transform: translateY(-0.8rem);
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0
+		rgba(0, 0, 0, 0.15);
+}
+
+.myCard{
+	transition: 0.4s ease;
+	
+}
+.myCard:hover {
 	transform: translateY(-0.8rem);
 	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0
 		rgba(0, 0, 0, 0.15);
