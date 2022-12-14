@@ -25,8 +25,8 @@ public class AlbumView implements AlbumCommand {
 		for (String image : images) {
 			if(!image.contains(".DS_Store")) {
 				ImageDTO dto = new ImageDTO();
-				dto.setFilePath(imagePath+"/"+image);
-				dto.setGroupName(image.replaceAll(".+-", ""));
+				dto.setFilePath(imagePath+File.separator+image);
+				dto.setGroupName(image.replaceAll(".+-", "").replaceAll("\\.\\w+", ""));
 				dto.setYear(image.replaceAll("-.+",""));
 				list.add(dto);
 			}

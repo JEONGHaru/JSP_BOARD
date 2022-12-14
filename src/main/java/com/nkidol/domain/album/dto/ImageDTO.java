@@ -12,4 +12,5 @@ public class ImageDTO {
 	private String filePath;
 	private String groupName;
 	private String year;
+	private int likeHit;
 }

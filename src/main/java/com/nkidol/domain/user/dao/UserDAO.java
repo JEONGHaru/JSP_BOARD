@@ -58,9 +58,9 @@ public class UserDAO {
 		
 		String SQL = sb.toString();
 		int result = 0;
+		Connection conn = DatabaseUtil.getConnection();
 		
 		try {
-			Connection conn = DatabaseUtil.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, dto.getUserID());
 			pstmt.setString(2, dto.getUserPassword());

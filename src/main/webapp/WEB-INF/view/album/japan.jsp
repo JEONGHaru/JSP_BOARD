@@ -7,6 +7,15 @@
 				<div class="services-header text-center py-5">
 					<h1 class="diplay-5">日本アイドル（${years}年代)</h1>
 					<div class="divider japan"></div>
+					<form class="row" action="upload" method="POST" enctype="multipart/form-data">
+					<div class="col-auto">
+						<input class="form-control m-1" type="file"
+							name="image">
+						</div>
+							<div class="col-auto mx-0">
+						<button class="btn btn-primary" type="submit">登録</button>
+					</div>
+				</form>
 				</div>
 				<div id="slick-slide" class="services-body">
 					<c:forEach var="n" items="${list}" varStatus="vs">
@@ -16,7 +25,7 @@
 									class="card-img-top" />
 								</a>
 								<div class="card-body">
-									<h4 class="card-title">${fn:substringBefore(n.groupName,'.')}</h4>
+									<h4 class="card-title">${n.groupName}</h4>
 									<p class="card-text fw-light mb-4">デビュー年：${n.year} </p>
 								</div>
 							</div>

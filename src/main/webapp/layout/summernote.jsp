@@ -40,29 +40,29 @@
 						<ul class="dropdown-menu dropend">
 							<li><a class="dropdown-item dropdown-toggle" role="button" >１９９０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/korea/year1990/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/korea/year1990/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/korea/year1990/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year1990/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/korea/year2000/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/korea/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/korea/year2000/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2000/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/korea/year2010/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/korea/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/korea/year2010/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2010/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/korea/year2020/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/korea/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/korea/year2020/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/korea/year2020/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 						</ul></li>
@@ -73,29 +73,29 @@
 						<ul class="dropdown-menu dropend">
 							<li><a class="dropdown-item dropdown-toggle" role="button">１９９０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year1990/boy" class="dropdown-item text-center">BoyGroup</a></li>
-									<li><a href="/album/japan/year1990/girl" class="dropdown-item text-center">GirlGroup</a></li>
+									<li><a href="/album/japan/year1990/boy/" class="dropdown-item text-center">BoyGroup</a></li>
+									<li><a href="/album/japan/year1990/girl/" class="dropdown-item text-center">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０００年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year2000/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/japan/year2000/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/japan/year2000/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2000/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０１０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year2010/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/japan/year2010/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/japan/year2010/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2010/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item dropdown-toggle" role="button">２０２０年代</a>
 								<ul class="dropdown-menu submenu">
-									<li><a href="/album/japan/year2020/boy" class="dropdown-item">BoyGroup</a></li>
-									<li><a href="/album/japan/year2020/girl" class="dropdown-item">GirlGroup</a></li>
+									<li><a href="/album/japan/year2020/boy/" class="dropdown-item">BoyGroup</a></li>
+									<li><a href="/album/japan/year2020/girl/" class="dropdown-item">GirlGroup</a></li>
 								</ul>
 							</li>
 						</ul></li>
