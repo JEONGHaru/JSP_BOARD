@@ -1,42 +1,47 @@
 package com.nkidol.command.album;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.nkidol.domain.album.dto.ImageDTO;
+import com.nkidol.domain.album.dto.ImageLikeDTO;
+import com.nkidol.domain.user.User;
+import com.nkidol.service.AlbumService;
 
 public class AlbumView implements AlbumCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		
 		String URI = request.getRequestURI();
-		String years = URI.replaceAll("[^0-9]","");
-		String imagePath = "/images"+URI;
-		String realPath = request.getServletContext().getRealPath(imagePath);
-		File file = new File(realPath);
-		String[] images = file.list(); 
-		ArrayList<ImageDTO> list = new ArrayList<>();
-		for (String image : images) {
-			if(!image.contains(".DS_Store")) {
-				ImageDTO dto = new ImageDTO();
-				dto.setFilePath(imagePath+File.separator+image);
-				dto.setGroupName(image.replaceAll(".+-", "").replaceAll("\\.\\w+", ""));
-				dto.setYear(image.replaceAll("-.+",""));
-				list.add(dto);
+		int year = Integer.parseInt(request.getParameter("year"));
+		
+		String gender = request.getParameter("gen");
+		String nation = URI.replaceAll("/album/","");
+		ImageDTO dto = new ImageDTO();
+		dto.setYear(year);
+		dto.setGender(gender);
+		dto.setNation(nation);
+		AlbumService service = new AlbumService();
+		ArrayList<ImageDTO> list = service.getAlbumImage(dto);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("principal") != null) {
+			User user = (User)session.getAttribute("principal");
+			for (ImageDTO imageDTO : list) {
+				service.getLiked(imageDTO,user.getUserID());
 			}
 		}
+		
 		list.sort((o1, o2) ->{
-			if(o1.getYear().equals(o2.getYear())) return o1.getGroupName().compareTo(o2.getGroupName());
-			else return o1.getYear().compareTo(o2.getYear());
+			if(o1.getDebut().equals(o2.getDebut())) return o1.getGroupName().compareTo(o2.getGroupName());
+			else return o1.getDebut().compareTo(o2.getDebut());
 		});
+		
 		request.setAttribute("list", list);
-		request.setAttribute("years", years);
+		request.setAttribute("years", year);
+		request.setAttribute("gender", gender);
 		
 	
 	}

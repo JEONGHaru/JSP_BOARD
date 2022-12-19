@@ -49,7 +49,7 @@ public class UserDAO {
 		return null;  //데이터 베이스 오류
 	}
 	
-	public int sava(JoinDTO dto) {
+	public int sava(User user) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO USER");
@@ -62,13 +62,13 @@ public class UserDAO {
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, dto.getUserID());
-			pstmt.setString(2, dto.getUserPassword());
-			pstmt.setString(3, dto.getUserFirstName());
-			pstmt.setString(4, dto.getUserLastName());
-			pstmt.setString(5, dto.getUserGender());
-			pstmt.setString(6, dto.getUserEmail());
-			pstmt.setString(7, dto.getUserEmailHash());
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserFirstName());
+			pstmt.setString(4, user.getUserLastName());
+			pstmt.setString(5, user.getUserGender());
+			pstmt.setString(6, user.getUserEmail());
+			pstmt.setString(7, user.getUserEmailHash());
 			result = pstmt.executeUpdate();
 			
 			conn.close();

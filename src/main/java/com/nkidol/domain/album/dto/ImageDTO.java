@@ -1,5 +1,7 @@
 package com.nkidol.domain.album.dto;
 
+import java.net.URLEncoder;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ImageDTO {
-	private String filePath;
+	private int imageID;
 	private String groupName;
-	private String year;
-	private int likeHit;
+	private int year;
+	private String gender;
+	private String debut;
+	private String nation;
+	private int likeCount;
+	private boolean liked; 
+	private String filePath;
+
+	
+	
 }

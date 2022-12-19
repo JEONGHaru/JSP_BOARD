@@ -117,7 +117,6 @@ function joinFormSubmit(form) {
 
 function userIDCheck() {
 	const userID = $("#userID").val();
-	console.log(userID);
 	$.ajax({
 		type: "POST",
 		url: "/user/IDCheck",

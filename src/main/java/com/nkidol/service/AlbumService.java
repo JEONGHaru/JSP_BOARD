@@ -1,7 +1,10 @@
 package com.nkidol.service;
 
+import java.util.ArrayList;
+
 import com.nkidol.domain.album.dao.AlbumDAO;
 import com.nkidol.domain.album.dto.ImageDTO;
+import com.nkidol.domain.album.dto.ImageLikeDTO;
 
 public class AlbumService {
 
@@ -16,4 +19,54 @@ public class AlbumService {
 		int result = albumDAO.save(dot);
 		return result;
 	}
+
+	public ArrayList<ImageDTO> getAlbumImage(ImageDTO dto) {
+		
+		ArrayList<ImageDTO> list = albumDAO.getList(dto);
+		return list;
+	}
+
+	public int deleteAlbumImage(int imageID) {
+		
+		int result = albumDAO.delete(imageID);
+		
+		return result;
+	}
+
+	public int likePlus(int imageID) {
+		
+		int result = albumDAO.countPlus(imageID);
+		
+		return result;
+	}
+
+	public int likeCancel(int imageID) {
+
+		int result = albumDAO.countCancel(imageID);
+		
+		return result;
+		
+	}
+
+	public int likeImageSave(ImageLikeDTO dto) {
+		
+		int result = albumDAO.likeSave(dto);
+		
+		return result;
+	}
+
+	public int likeImageDelete(ImageLikeDTO dto) {
+		
+		int result = albumDAO.likeDelete(dto);
+		
+		return result;
+	}
+
+	public void getLiked(ImageDTO dto, String userID) {
+			albumDAO.liked(dto,userID);
+	}
+
+	
+
+	
 }

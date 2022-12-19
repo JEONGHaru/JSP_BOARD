@@ -1,6 +1,5 @@
 package com.nkidol.domain.user;
 
-import com.nkidol.domain.board.Board;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

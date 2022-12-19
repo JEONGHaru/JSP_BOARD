@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 
+
 #services {
 	background-color: rgba(96, 125, 139, 0.1);
 }
@@ -54,8 +55,16 @@
 	object-position: center;
 }
 
+.card img:hover{
+	cursor:pointer;
+}
+
 
 #services .card{
 	width:100%;
 	height:25rem;
 }
+
+#myButton:active, #myButton:focus, #myButton:hover {
+outline:none !important;
+box-shadow:none !important;}

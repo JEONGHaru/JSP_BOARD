@@ -13,8 +13,8 @@ public class UserService {
 		userDAO = new UserDAO();
 	}
 	
-	public int join(JoinDTO dto) {
-		int result = userDAO.sava(dto);
+	public int join(User user) {
+		int result = userDAO.sava(user);
 		return result;
 	}
 	

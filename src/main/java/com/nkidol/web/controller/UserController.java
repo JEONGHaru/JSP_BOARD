@@ -39,7 +39,6 @@ public class UserController extends HttpServlet {
 		String URI = request.getRequestURI();
 		String cmd = URI.replaceAll("/user","");
 		UserCommand command = null;
-		System.out.println(cmd);
 		
 		if(cmd.equals("/login")) {
 			command = new UserLogin();
@@ -57,7 +56,6 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 			response.sendRedirect("/main");
 		}else if(cmd.equals("/emailChecked")) {
-			System.out.println("start");
 			command = new UserEmailChecked();
 			command.execute(request, response);
 		}else if(cmd.equals("/IDCheck")) {

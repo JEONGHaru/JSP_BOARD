@@ -24,8 +24,7 @@ public class BoardSevice {
 
 	public ArrayList<Board> BoardList(ListDTO dto) {
 
-		ArrayList<Board> list = new ArrayList<>();
-		list = boardDAO.getList(dto);
+		ArrayList<Board> list = boardDAO.getList(dto);
 		return list;
 	}
 	

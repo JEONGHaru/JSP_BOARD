@@ -15,8 +15,6 @@ public class UserLogin implements UserCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String userID = request.getParameter("userID");
 		String userPassword = request.getParameter("userPassword");
-		System.out.println(userID);
-		System.out.println(userPassword);
 		LoginDTO loginDTO = new LoginDTO(userID, userPassword);
 		UserService userService = new UserService();
 		User userEntity = userService.login(loginDTO);

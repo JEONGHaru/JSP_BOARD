@@ -35,13 +35,10 @@ public class EncodingFilter implements Filter {
 			response.setContentType("text/css; charset=UTF-8");
 		}else if(uri.contains(".js")) {
 			response.setContentType("text/js; charset=UTF-8");
-		}else if(uri.contains(".png")) {
-			response.setContentType("image/png");
-		}
-		
-		else {
+		}else {
 			response.setContentType("text/html; charset=UTF-8");
 		}
+		
 		
 		chain.doFilter(request, response);
 	}
