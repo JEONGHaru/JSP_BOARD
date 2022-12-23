@@ -1,6 +1,7 @@
 package com.nkidol.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,18 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.nkidol.domain.album.dto.ImageDTO;
 import com.nkidol.domain.user.User;
+import com.nkidol.service.AlbumService;
 
 @WebServlet("/main")
 public class MainController extends HttpServlet{
 		
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
-//		User user = (User)session.getAttribute("principal");
-//		System.out.println("user.getUserID(): "+user.getUserID());
-//		AlbumService albumService = new AlbumService();
-//		ArrayList<ImageDTO> list = albumService.getAlbumImage();
+//		HttpSession sesstion = request.getSession();
+//		User user = null;
+//		if(sesstion.getAttribute("principal") != null) {
+//			user = (User)sesstion.getAttribute("principal");
+//			System.out.println("user.getUserID(): "+user.getUserID());
+//		}
+		AlbumService albumService = new AlbumService();
+		ArrayList<ImageDTO> kList = albumService.getImageList("korea");
+		ArrayList<ImageDTO> jList = albumService.getImageList("japan");
+		request.setAttribute("kList", kList);
+		request.setAttribute("jList", jList);
 //		String koreaImages = "/images/total/korea/";
 //		String japanImages = "/images/total/japan/";
 //		String koreaRealPath = request.getServletContext().getRealPath(koreaImages);

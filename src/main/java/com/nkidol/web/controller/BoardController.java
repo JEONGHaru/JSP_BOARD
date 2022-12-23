@@ -39,7 +39,6 @@ public class BoardController extends HttpServlet{
 		String URL = request.getRequestURI();
 		String cmd = URL.replace("/board", "");
 		BoardCommand command = null;
-		System.out.println(cmd);
 		
 		if(cmd.equals("/list")) {
 			command = new BoardList();
@@ -54,8 +53,12 @@ public class BoardController extends HttpServlet{
 			command.execute(request, response);
 			request.getRequestDispatcher("/WEB-INF/view/board/write_view.jsp").forward(request, response);
 		}else if(cmd.equals("/write")) {
-			command = new BoardWrite();
-			command.execute(request, response);
+			try {
+				command = new BoardWrite();
+				command.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(cmd.equals("/update_view")) {
 			command = new BoardUpdateView();
 			command.execute(request, response);

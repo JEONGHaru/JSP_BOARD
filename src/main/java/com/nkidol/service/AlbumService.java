@@ -62,8 +62,18 @@ public class AlbumService {
 		return result;
 	}
 
-	public void getLiked(ImageDTO dto, String userID) {
+	public void getLiked(ArrayList<ImageDTO> list, String userID) {
+		
+		for (ImageDTO dto : list) {
 			albumDAO.liked(dto,userID);
+		}
+	}
+
+	public ArrayList<ImageDTO> getImageList(String nation) {
+		
+		ArrayList<ImageDTO> list = albumDAO.getImage(nation);
+		
+		return list;
 	}
 
 	

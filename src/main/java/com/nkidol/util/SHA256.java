@@ -12,9 +12,6 @@ public class SHA256 {
 		
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
-			byte[] salt = "nkidol email".getBytes();
-			digest.reset();
-			digest.update(salt);
 			byte[] chars = digest.digest(input.getBytes("UTF-8"));
 			for(int i =0;i<chars.length;i++) {
 				String hex = Integer.toHexString(0xff & chars[i]);

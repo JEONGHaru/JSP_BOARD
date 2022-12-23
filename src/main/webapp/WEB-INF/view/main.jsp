@@ -11,13 +11,13 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner border p-2">
 						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="${koreaList.get(0)}" class="d-block w-100" alt="...">
+							<img src="${kList.get(0).filePath}" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item ">
-							<img src="${koreaList.get(1)}" class="d-block w-100" alt="...">
+							<img src="${kList.get(1).filePath}" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="${koreaList.get(2)}"
+							<img src="${kList.get(2).filePath}"
 								class="d-block w-100 lesse" alt="...">
 						</div>
 
@@ -34,15 +34,15 @@
 					data-bs-ride="carousel">
 					<div class="carousel-inner badge border p-2">
 						<div class="carousel-item active" data-bs-interval="2000">
-							<img src="${japanList.get(0)}" class="d-block w-100 nogi"
+							<img src="${jList.get(0).filePath}" class="d-block w-100"
 								alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="${japanList.get(1)}" class="d-block w-100"
+							<img src="${jList.get(1).filePath}" class="d-block w-100"
 								alt="...">
 						</div>
 						<div class="carousel-item">
-							<img src="${japanList.get(2)}" class="d-block w-100"
+							<img src="${jList.get(2).filePath}" class="d-block w-100"
 								alt="...">
 						</div>
 					</div>
@@ -50,7 +50,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

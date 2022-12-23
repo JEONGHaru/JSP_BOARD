@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.nkidol.domain.album.dto.ImageDTO;
-import com.nkidol.domain.album.dto.ImageLikeDTO;
 import com.nkidol.domain.user.User;
 import com.nkidol.service.AlbumService;
 
@@ -29,16 +28,15 @@ public class AlbumView implements AlbumCommand {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("principal") != null) {
 			User user = (User)session.getAttribute("principal");
-			for (ImageDTO imageDTO : list) {
-				service.getLiked(imageDTO,user.getUserID());
-			}
+			String userID = user.getUserID();
+			service.getLiked(list,userID);
+			
 		}
 		
 		list.sort((o1, o2) ->{
 			if(o1.getDebut().equals(o2.getDebut())) return o1.getGroupName().compareTo(o2.getGroupName());
 			else return o1.getDebut().compareTo(o2.getDebut());
 		});
-		
 		request.setAttribute("list", list);
 		request.setAttribute("years", year);
 		request.setAttribute("gender", gender);

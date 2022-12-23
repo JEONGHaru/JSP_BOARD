@@ -1,9 +1,6 @@
 package com.nkidol.web.controller;
 
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.nkidol.command.user.UserCommand;
 import com.nkidol.command.user.UserEmailChecked;
 import com.nkidol.command.user.UserEmailSend;
+import com.nkidol.command.user.UserFindById;
+import com.nkidol.command.user.UserFindByPw;
 import com.nkidol.command.user.UserIDCheck;
 import com.nkidol.command.user.UserJoin;
 import com.nkidol.command.user.UserLogin;
 import com.nkidol.command.user.UserLogout;
-import com.nkidol.service.UserService;
 
 @WebServlet("/user/*")
 public class UserController extends HttpServlet {
@@ -60,6 +58,12 @@ public class UserController extends HttpServlet {
 			command.execute(request, response);
 		}else if(cmd.equals("/IDCheck")) {
 			command = new UserIDCheck();
+			command.execute(request, response);
+		}else if(cmd.equals("/findById")) {
+			command = new UserFindById();
+			command.execute(request, response);
+		}else if(cmd.equals("/findByPw")) {
+			command = new UserFindByPw();
 			command.execute(request, response);
 		}
 	}

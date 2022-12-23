@@ -23,13 +23,13 @@
 						placeholder="PASSWORDをもう一度入力してください" name="userPassword2">
 					<label for="floatingInput">PASSWORD確認</label>
 				</div>
-				<div class="form-floating d-flex">
-					<div class="form-floating col">
+				<div class="form-floating mb-3 d-flex">
+					<div class="form-floating me-3 col">
 						<input type="text" class="form-control" id="floatingInput"
 							placeholder="名字を入力してください" name="userFirstName"> <label
 							for="floatingInput mb-0">FirstName</label>
 					</div>
-					<div class="form-floating mb-3 col">
+					<div class="form-floating col">
 						<input type="text" class="form-control" id="floatingInput"
 							placeholder="名前を入力してください" name="userLastName"><label
 							for="floatingInput">LastName</label>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="form-floating mb-3">
-					<input type="text" class="form-control" id="floatingInput"
+					<input type="email" class="form-control" id="floatingInput"
 						placeholder="EMAILを入力してください" name="userEmail"> <label
 						for="floatingInput">EMAIL</label>
 				</div>

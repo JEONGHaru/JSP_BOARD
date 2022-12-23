@@ -34,7 +34,6 @@ public class UserDAO {
 						.emailChecked(rs.getBoolean("emailChecked"))
 						.userGrade(rs.getInt("userGrade"))
 						.build();
-						System.out.println(rs.getBoolean("emailChecked"));
 				conn.close();
 				pstmt.close();
 				rs.close();
@@ -53,7 +52,7 @@ public class UserDAO {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO USER");
-		sb.append("(userID,userPassword,userFirstName,userGender,userLastName,userEmail,userEmailHash) ");
+		sb.append("(userID,userPassword,userFirstName,userLastName,userGender,userEmail,userEmailHash) ");
 		sb.append("VALUES(?,?,?,?,?,?,?)");
 		
 		String SQL = sb.toString();
@@ -149,7 +148,7 @@ public class UserDAO {
 	
 }
 
-	public int findByUserID(String userID) {
+	public User getUser(String userID) {
 		
 		String SQL = "SELECT * FROM USER WHERE userID = ?";
 		
@@ -158,16 +157,50 @@ public class UserDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) return 1;  //IDある
-			
-			conn.close();
-			pstmt.close();
-			rs.close();
+			if(rs.next()) {
+				User user = User.builder()
+						.userID(rs.getString("userID"))
+						.userFirstName(rs.getString("userFirstName"))
+						.userEmail(rs.getString("userEmail"))
+						.emailChecked(rs.getBoolean("emailChecked"))
+						.userGrade(rs.getInt("userGrade"))
+						.build();
+				conn.close();
+				pstmt.close();
+				rs.close();
+				return user;
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return -1;  //IDない
+		return null;  //IDない
 	}
+
+	public String getId(User user) {
+		String SQL = "SELECT userID FROM USER WHERE userFirstName = ? AND userLastName = ? AND userEmail = ? LIMIT 1";
+		String userID = null;
+		try {
+			Connection conn = DatabaseUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserFirstName());
+			pstmt.setString(2, user.getUserLastName());
+			pstmt.setString(3, user.getUserEmail());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())  userID = rs.getString("userID");
+			
+			conn.close();
+			pstmt.close();
+			rs.close();
+			return userID;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return userID;
+	
+	}
+
+	
 }

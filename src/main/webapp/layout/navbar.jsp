@@ -12,6 +12,7 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link type="text/css;" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <title>日韓アイドル</title>
@@ -101,7 +102,6 @@
 							</li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="/board/list">掲示板</a>
-					<li class="nav-item"><a class="nav-link" href="/album/list">album</a>
 					</li>
 				</ul>
 				<c:if test="${empty principal}">
@@ -119,7 +119,7 @@
 					<div class="nav-item dropdown">
 						<c:if test="${!isEmailCheck}">
 							<a href="/user/emailSend" class="btn btn-danger" role="button"
-								onclick="clickEvent();">E-MAIL確認</a>
+								onclick="clickEmailSendMSG();">E-MAIL確認</a>
 						</c:if>
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">会員管理</button>
@@ -136,7 +136,6 @@
 	<div class="modal fade" id="myModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-
 			<div class="modal-content rounded-4 shadow">
 				<div class="modal-header p-5 pb-4 border-bottom-0">
 					<h1 class="fw-bold mb-0 fs-2">ログイン</h1>
@@ -149,21 +148,100 @@
 						onsubmit="loginFormSubmit(this); return false;" method="post">
 						<div class="form-floating mb-3">
 							<input type="text" autofocus
-								class="form-control rounded-3 myInput" id="floatingInput"
+								class="form-control rounded-3 myInput" id="floatingInputLoginId"
 								name="userID" placeholder="ID"> <label
-								for="floatingInput">ID</label>
+								for="floatingInputLoginId">ID</label>
 						</div>
 						<div class="form-floating mb-3">
 							<input type="password" class="form-control rounded-3"
-								id="floatingPassword" name="userPassword" placeholder="Password">
-							<label for="floatingPassword">PASSWORD</label>
+								id="floatingLoginPassword" name="userPassword" placeholder="Password">
+							<label for="floatingLoginPassword">PASSWORD</label>
 						</div>
 						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
 							type="submit">LOG IN</button>
-						<a class="text-primary" href="#" hidden="hidden">ID•PASSWORDを忘れた方はこちら</a>
 						<hr class="my-4">
-
+						<ul>
+						<li><a class="text-primary" role="button" data-bs-target="#findById" data-bs-toggle="modal"
+						>IDを忘れた方はこちら</a></li>
+						<li><a class="text-primary" role="button" data-bs-target="#findByPw" data-bs-toggle="modal"
+						>PASSWORDを忘れた方はこちら</a></li>
+						</ul>
 					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="findById"  tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal-dialog">
+			<div class="modal-content rounded-4 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<h1 class="fw-bold mb-0 fs-2">IDを忘れた方</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body p-5 pt-0">
+					<form action="/user/findById"
+						onsubmit="findByIdFormSubmit(this); return false;" method="post">
+						<div class="form-floating mb-3">
+							<div class="form-floating mb-3 col">
+							<input type="text" autofocus
+								class="form-control rounded-3 myInput" id="floatingInputFirst"
+								name="userFirstName" placeholder="FirstName"><label
+								for="floatingInputFirst">FirstName</label>
+								</div>
+								<div class="form-floating col">
+								<input type="text" autofocus
+								class="form-control rounded-3 myInput" id="floatingInputLast"
+								name="userLastName" placeholder="LastName"><label
+								for="floatingInputLast">LastName</label>
+								</div>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control rounded-3"
+								id="floatingEmail" name="userEmail" placeholder="E-mail">
+							<label for="floatingEmail">E-mail</label>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+							type="submit">送信</button>
+					</form>
+						<hr class="my-4">
+						<a class="text-primary" role="button" data-bs-target="#findByPw" data-bs-toggle="modal"
+						>PASSWORDを忘れた方はこちら</a>
+				</div>
+			</div>
+		</div>
+	</div><div class="modal fade" id="findByPw"  tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal-dialog">
+			<div class="modal-content rounded-4 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<h1 class="fw-bold mb-0 fs-2">Passwordを忘れた方</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body p-5 pt-0">
+					<form action="/user/findByPw"
+						onsubmit="findByPwFormSubmit(this); return false;" method="post">
+						<div class="form-floating mb-3">
+							<input type="text" autofocus
+								class="form-control rounded-3 myInput" id="floatingInputFindPw"
+								name="userID" placeholder="ID"> <label
+								for="floatingInputFindPw">ID</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="email" class="form-control rounded-3"
+								id="floatingFindPwEmail" name="userEmail" placeholder="E-mail">
+							<label for="floatingFindPwEmail">E-mail</label>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+							type="submit">送信</button>
+					</form>
+						<hr class="my-4">
+						<a class="text-primary" role="button" data-bs-target="#findById" data-bs-toggle="modal"
+						>IDを忘れた方はこちら</a>
 				</div>
 			</div>
 		</div>

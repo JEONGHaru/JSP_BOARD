@@ -1,10 +1,45 @@
 
-function clickEvent() {
+function clickEmailSendMSG() {
 	alert('メールを送信しました。メールを確認しリンクをクリックして確認してください');
 }
 
+function findByIdFormSubmit(form){
+	form.userFirstName.value = form.userFirstName.value.trim();
+	if(form.userFirstName.value.length == 0) {
+		alert('名字を入力してください')
+		form.userFirstName.focus();
+		return;
+	}
+	form.userLastName.value = form.userLastName.value.trim();
+	if(form.userLastName.value.length == 0) {
+		alert('名前を入力してください')
+		form.userLastName.focus();
+		return;
+	}
+	form.userEmail.value = form.userEmail.value.trim();
+	if(form.userEmail.value.length == 0) {
+		alert('E-mailを入力してください')
+		form.userEmail.focus();
+		return;
+	}
+	form.submit();
+}
+function findByPwFormSubmit(form){
+	form.userID.value = form.userID.value.trim();
+	if(form.userID.value.length == 0) {
+		alert('IDを入力してください')
+		form.userID.focus();
+		return;
+	}
+	form.userEmail.value = form.userEmail.value.trim();
+	if(form.userEmail.value.length == 0) {
+		alert('E-mailを入力してください')
+		form.userEmail.focus();
+		return;
+	}
+	form.submit();
+}
 function loginFormSubmit(form) {
-
 
 	form.userID.value = form.userID.value.trim();
 	if (form.userID.value.length == 0) {
@@ -70,7 +105,6 @@ function listFormSubmit(form) {
 	DolistFormSubmit = true;
 };
 let DojoinFormSubmit = false;
-let DojoinIdchecking = false;
 function joinFormSubmit(form) {
 	if (DojoinFormSubmit) {
 		alert('処理中です。');
@@ -115,6 +149,7 @@ function joinFormSubmit(form) {
 	DojoinFormSubmit = true;
 };
 
+let DojoinIdchecking = false;
 function userIDCheck() {
 	const userID = $("#userID").val();
 	$.ajax({
@@ -124,9 +159,9 @@ function userIDCheck() {
 		contentType: "text/plain; charset=UTF-8",
 		dataType: "text"
 	}).done(function(data) {
-		if (data == 'ok') {
+		if (data == 'no') {
 			alert('そのIDは利用できません');
-		} else if (data == 'no') {
+		} else if (data == 'ok') {
 			alert('利用可能なIDです');
 			DojoinIdchecking = true;
 		}

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.nkidol.domain.user.User;
 import com.nkidol.domain.user.dto.LoginDTO;
 import com.nkidol.service.UserService;
+import com.nkidol.util.SHA256;
 import com.nkidol.util.Script;
 
 public class UserLogin implements UserCommand {
@@ -15,7 +16,8 @@ public class UserLogin implements UserCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String userID = request.getParameter("userID");
 		String userPassword = request.getParameter("userPassword");
-		LoginDTO loginDTO = new LoginDTO(userID, userPassword);
+		String userRealPassword = SHA256.getSHA256(userPassword);
+		LoginDTO loginDTO = new LoginDTO(userID, userRealPassword);
 		UserService userService = new UserService();
 		User userEntity = userService.login(loginDTO);
 		

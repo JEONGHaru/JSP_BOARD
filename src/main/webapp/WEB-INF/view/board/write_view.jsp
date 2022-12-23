@@ -3,7 +3,7 @@
 <%@ include file="/layout/summernote.jsp" %>
 	<div class="container">
 		<div class="row">
-			<form action="write" method="post"
+			<form action="write" method="POST" 
 				onsubmit="listFormSubmit(this); return false;">
 				<input type="hidden" name="userID" value="${principal.userID}" />
 				<table class="table table-striped">
@@ -13,7 +13,7 @@
 								placeholder="タイトル" name="title" maxlength="50" /></td>
 						</tr>
 						<tr>
-							<td><textarea id="summernote" class="form-control" 
+							<td><textarea id="content" class="form-control" 
 									name="content" ></textarea></td>
 						</tr>
 					</tbody>
@@ -24,12 +24,30 @@
 		</div>
 	</div>
 	 <script>
-      $('#summernote').summernote({
+      $('#content').summernote({
     	placeholder:'内容を入力してください',
         tabsize: 2,
-        height: 400
-        
+        height: 400,
+        toolbar: [
+        	['style', ['style']],
+			['fontsize', ['fontsize']],
+			['font', ['bold', 'underline', 'clear']],
+			['fontname', ['fontname']],
+			['color', ['forecolor', 'color']],
+			['table', ['table']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['height', ['height']],
+			['insert', ['link', 'video']],
+			['view', ['fullscreen', 'codeview', 'help']],
+        ],
+        callback:{
+        	inImageUpload: function(data){
+        		data.pop();
+        	}
+        }
       });
+      
+  
     </script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

@@ -63,8 +63,13 @@ public class AlbumController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(cmd.contains("/delete")) {
-			
-			
+			try {
+			command = new AlbumDelete();
+			command.execute(request, response);
+		
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		

@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.nkidol.domain.user.User;
-import com.nkidol.domain.user.dto.JoinDTO;
 import com.nkidol.service.UserService;
 import com.nkidol.util.SHA256;
 import com.nkidol.util.Script;
@@ -36,21 +35,20 @@ public class UserJoin implements UserCommand {
 		
 		User user = new User();
 		user.setUserID(userID);
-		user.setUserPassword(userPassword);
+		user.setUserPassword(SHA256.getSHA256(userPassword));
 		user.setUserFirstName(userFirstName);
-		user.setUserLastName(userFirstName);
-		user.setUserGender(userID);
+		user.setUserLastName(userLastName);
+		user.setUserGender(userGender);
 		user.setUserEmail(userEmail);
 		user.setUserEmailHash(userEmailHash);
-		
-		int result = userService.join(user);
-		HttpSession session = request.getSession();
 		System.out.println(user);
-		session.setAttribute("principal", user);
+		int result = userService.join(user);
 		if(result == 0) {
 			Script.back(response, "そのIDは利用できません");
 			
 		}else {
+			HttpSession session = request.getSession();
+			session.setAttribute("principal", user);
 			Script.save(response, "会員登録ありがとうございます", "/main");
 		}
 		}

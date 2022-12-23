@@ -196,6 +196,36 @@ public class AlbumDAO {
 		
 	}
 
+	public ArrayList<ImageDTO> getImage(String nation) {
+		String SQL = "SELECT * FROM ALBUMIMAGE WHERE nation = ? ORDER BY likeCount DESC LIMIT 3;";
+		ArrayList<ImageDTO> list = new ArrayList<ImageDTO>();
+		
+		try {
+			Connection conn = DatabaseUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,nation);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ImageDTO dto = new ImageDTO();
+				dto.setImageID(rs.getInt("imageID"));
+				dto.setGroupName(rs.getString("groupName"));
+				dto.setYear(rs.getInt("year"));
+				dto.setDebut(rs.getString("debut"));
+				dto.setLikeCount(rs.getInt("likeCount"));
+				dto.setFilePath(rs.getString("filePath"));
+				list.add(dto);
+			}
+			
+			conn.close();
+			pstmt.close();
+			rs.close();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 
 	
 }
